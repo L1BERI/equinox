@@ -1,0 +1,33 @@
+{
+  "name": "equinox",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "eslint": "^9.8.0",
+    "globals": "^15.8.0",
+    "prettier": "^3.3.3",
+    "sass": "^1.77.8",
+    "sharp": "^0.33.4",
+    "stylelint": "^16.8.1",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-order": "^6.0.4",
+    "svgo": "^3.3.2",
+    "vite": "^5.3.4",
+    "vite-plugin-html-inject": "^1.1.2",
+    "vite-plugin-image-optimizer": "^1.1.7"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "gsap": "^3.12.5",
+    "imask": "^7.6.1",
+    "locomotive-scroll": "^4.1.4",
+    "swiper": "^11.1.14",
+    "vivus": "^0.4.6"
+  }
+}

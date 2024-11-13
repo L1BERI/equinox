@@ -1,0 +1,192 @@
+.menu {
+  position: fixed;
+
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  color: var(--white-color-10);
+  background-color: var(--black-color-10);
+  top: -120%;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+  &__container {
+    display: flex;
+  }
+  &__left {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    flex: 0 1 35%;
+  }
+  &__left-form {
+    height: 70%;
+    border-right: 1px solid var(--white-color-10);
+    border-bottom: 1px solid var(--white-color-10);
+    display: flex;
+    padding-bottom: 50px;
+    padding-left: 50px;
+  }
+  &__form {
+    margin-top: auto;
+    max-width: 578px;
+    display: flex;
+    flex-direction: column;
+  }
+  .form__title {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 30px;
+    color: var(--white-color-10);
+    margin-bottom: 50px;
+  }
+  .form__inputs-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+  }
+  .form__send-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--white-color-10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(15px);
+    transition: all 0.5s ease-in-out;
+    gap: 20px;
+    position: relative; /* для позиционирования svg */
+    overflow: hidden; /* чтобы текст не выходил за пределы */
+    cursor: pointer;
+
+    span {
+      position: absolute; /* Позиционируем текст внутри кнопки */
+      left: 50%; /* Центрируем текст */
+      transform: translateX(-50%); /* Центрируем текст */
+      white-space: nowrap; /* Не переносить текст на новую строку */
+      transition: opacity 0.3s ease; /* Плавное появление текста */
+      font-family: var(--font-family);
+      font-weight: 400;
+      font-size: 20px;
+      color: #fff;
+    }
+
+    .send-icon {
+      transition: transform 0.3s ease; /* Плавный поворот иконки */
+    }
+  }
+  .form__inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 300px;
+    width: 100%;
+    input {
+      background-color: transparent;
+      border-bottom: 1px solid var(--white-color-10);
+      padding: 5px 10px;
+      font-family: var(--font-family);
+      font-weight: 300;
+      font-size: 20px;
+      color: var(--white-color-10);
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+  &__left-logo {
+    border-right: 1px solid var(--white-color-10);
+    height: 30%;
+  }
+  .contact-method-radio {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    padding-left: 10px;
+  }
+  .contact-method-label {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--white-color-10);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &__left-logo {
+    display: flex;
+  }
+  &__left-link {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 50px;
+    color: var(--white-color-10);
+    margin-top: auto;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    position: relative;
+   
+  }
+  input[type='radio']:checked + .contact-method-label {
+    background-color: var(--blue-color-10);
+    border: 1px solid var(--blue-color-10);
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  &__right{
+    margin-left: auto;
+    padding-right: 154px;
+    height: 100vh;
+  }
+  &__right-wrapper{
+    height: 100%;
+  }
+  &__right-list {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+ &__right-list-link {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 100px;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--white-color-10);
+    opacity: .2;
+   
+  }
+  .swiper-slide a{
+  transition: color .3s ;
+  }
+
+  .swiper-slide-active{
+   
+  }
+  .swiper-slide-active>a{
+    color: var(--white-color-10);
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    font-size: 140px;
+    opacity: 1;
+  
+  }
+  .swiper-slide{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    justify-content: end;
+  }
+
+}
+.menu-active{
+    transition: all 1s ease-in-out;
+    top: 0;
+    opacity: 1;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}

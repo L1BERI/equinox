@@ -1,0 +1,47 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('./../assets/fonts/Inter18pt-Regular.woff2') format('woff2');
+  font-weight: 400; /* Было: normal */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./../assets/fonts/Inter18pt-Medium.woff2') format('woff2');
+  font-weight: 500; /* Было: 500 */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./../assets/fonts/Inter18pt-Light.woff2') format('woff2');
+  font-weight: 300; /* Было: 300 */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./../assets/fonts/Inter18pt-SemiBold.woff2') format('woff2');
+  font-weight: 600; /* Было: 600 */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./../assets/fonts/Inter18pt-Bold.woff2') format('woff2');
+  font-weight: 700; /* Было: bold */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./../assets/fonts/Inter18pt-ExtraLight.woff2') format('woff2');
+  font-weight: 200; /* Было: 200 */
+  font-style: normal;
+  font-display: swap;
+}

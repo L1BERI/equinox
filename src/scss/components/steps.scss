@@ -1,0 +1,102 @@
+.steps {
+  height: 100vh;
+  &__container {
+    position: relative;
+  }
+  &__upper {
+    height: 30vh;
+  }
+  &__title {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 100px;
+    line-height: 100%;
+    max-width: 860px;
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    top: 50px;
+    -webkit-text-stroke: 2px #ffffff;
+    color: transparent;
+    opacity: 0.3;
+  }
+
+  &__subtitle {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 30px;
+    color: var(--white-color-10);
+    margin: 0 auto;
+    max-width: 693px;
+    padding-top: 100px;
+    position: relative;
+    z-index: 1;
+    span {
+      color: var(--blue-color-10);
+    }
+  }
+
+  &__orbits {
+    position: relative;
+    height: 70vh;
+  }
+
+  &__planet {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: var(--white-color-10);
+    box-shadow: 0 0 100px 0 #2d4cff;
+    position: absolute;
+    left: 0;
+    top: 20%;
+  }
+  .orbit__search{
+    position: absolute;
+    top: 24%;
+    left: -20%;
+    svg{
+        transform: scaleX(-1);
+    }
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__circle {
+    width: 50px;
+    height: 50px;
+    background-color: var(--blue-color-10);
+    border-radius: 50%;
+  }
+  &__info-text {
+    display: flex;
+    flex-direction: column;
+  }
+  &__info-number {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 20px;
+    -webkit-text-stroke: 2px #ffffff;
+    color: transparent;
+  }
+  &__info-desc {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--white-color-10);
+    max-width: 178px;
+  }
+
+  .orbit__plan{
+    position: absolute;
+    left: -20%;
+    top: 20%;
+    svg{
+        transform: scaleX(-1);
+    }
+  }
+}
