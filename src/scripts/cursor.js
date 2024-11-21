@@ -84,4 +84,7 @@ export const gsapCursor = () => {
       ease: "power2.out"
     });
   });
+
+
+
 };

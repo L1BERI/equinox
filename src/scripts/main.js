@@ -3,6 +3,7 @@ import './header';
 import {gsapCursor} from './cursor';
 import './menu-form';
 import './about';
+import './quiz';
 
 
 gsapCursor();

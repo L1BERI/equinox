@@ -1,5 +1,6 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { TextPlugin } from 'gsap/TextPlugin';
 import LocomotiveScroll from 'locomotive-scroll';
 
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
@@ -451,6 +452,125 @@ siteTl.fromTo('.live__btns', {
   opacity:1,
   duration: baseDuration
 }, '-=1')
+
+
+siteTl.to('.live__cards-planet', {
+  delay:2,
+  opacity:0,
+  yPercent:-100,
+  duration: baseDuration * 1.2,
+}, '-=1')
+siteTl.to('.live__cards-content', {
+  opacity:0,
+  yPercent:-130,
+  duration: baseDuration * 2.4
+}, '-=2.5')
+siteTl.to('.live__btns', {
+  opacity:0,
+  yPercent:-800,
+  duration: baseDuration,
+}, '-=4.6')
+
+siteTl.fromTo('.calc',{
+  yPercent:100,
+  opacity:0,
+  visibility:'hidden',
+ 
+},{
+  yPercent:0,
+  opacity:1,
+  visibility:'visible',
+ 
+  duration: baseDuration * 2
+}, '-=3')
+
+
+
+
+
+
+// siteTl.to('.live__cards-planet', {
+//   xPercent:-100,
+//   opacity:0,
+//   duration:baseDuration * 1.4,
+// })
+// siteTl.to('.live__cards-number', {
+//   xPercent:40,
+//   yPercent:-40,
+//   opacity:0,
+//   duration:baseDuration * 1.4,
+// },'-=3')
+// siteTl.to('.live__cards-name', {
+//   xPercent:40,
+  
+//   opacity:0,
+//   duration:baseDuration * 1.4,
+// },'-=3')
+
+// siteTl.to('.live__cards-desc', {
+//   xPercent:40,
+//   yPercent:50,
+//   opacity:0,
+//   duration:baseDuration * 1,
+// },'-=3')
+// siteTl.to('.live__btns', {
+//   xPercent:40,
+//   yPercent:70,
+//   opacity:0,
+//   duration:baseDuration * 1.4,
+// },'-=3')
+
+
+
+// siteTl.fromTo('.calc__subtitle',{
+//   opacity:0,
+//   x:500,
+//   y:300,
+//   scale:0,
+// },{
+//   scale:1,
+//   opacity:1,
+// x:0,
+// y:0,
+//   duration:baseDuration *1.2
+// },'-=3')
+// siteTl.fromTo('.calc__title',{
+//   opacity:0,
+//   x:500,
+//   y:300,
+//   scale:0,
+// },{
+//   scale:1,
+//   opacity:1,
+// x:0,
+// y:0,
+//   duration:baseDuration *1.2
+// },'-=3')
+// siteTl.fromTo('.calc__desc',{
+//   opacity:0,
+//   x:500,
+//   y:300,
+//   scale:0,
+// },{
+//   scale:1,
+//   opacity:1,
+// x:0,
+// y:0,
+//   duration:baseDuration *1.2
+// },'-=3')
+// siteTl.fromTo('.calc__quiz',{
+//   opacity:0,
+//   x:-300,
+//   scale:0,
+// },{
+//   opacity:1,
+//   x:0,
+//   scale:1,
+//   duration:baseDuration *1.2
+// },'-=3')
+
+
+
 
 
 const liveNextBtn = document.querySelector('.live__next-btn');

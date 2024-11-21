@@ -103,6 +103,7 @@ label {
   border-radius: 50%;
   pointer-events: none;
   z-index: 1000;
+  mix-blend-mode: difference; 
 }
 
 /* Увеличенный курсор (круг) */
@@ -149,6 +150,7 @@ label {
     width: 100%;
     transition: transform 0.3s ease-in-out;
   }
+
 }
 
 .burger-active {
