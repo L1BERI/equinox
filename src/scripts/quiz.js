@@ -67,6 +67,7 @@ const quizData = [
 let currentQuestionIndex = 0;
 let answers = {};
 let selectedAnswers = [];
+let previousQuestions = [];
 
 const questionNumberElement = document.querySelector('.quiz-question__number');
 const questionTextElement = document.querySelector('.quiz-question__text');
@@ -74,6 +75,8 @@ const answersContainer = document.querySelector('.calc__quiz-answers');
 const progressNumberElement = document.querySelector('.quiz-bottom__progress-number');
 const progressBarElement = document.querySelector('.quiz-bottom__progress-complete');
 const acceptButton = document.querySelector('.quiz-bottom__accept-btn');
+const backButton = document.querySelector('.quiz-question__back-btn');
+const resetButton = document.querySelector('.calc__quiz-result-reset');
 const quizInner = document.querySelector('.calc__quiz-inner');
 const quizLoading = document.querySelector('.calc__quiz-loading');
 const loadingSpinner = document.querySelector('.calc__quiz-loading-spinner');
@@ -94,7 +97,7 @@ function loadQuestion(index) {
     answersContainer.appendChild(answerElement);
   });
 
-  const progressPercent = Math.round(((index + 1) / quizData.length) * 100);
+  const progressPercent = Math.round(((index) / quizData.length) * 100);
   progressNumberElement.textContent = `${progressPercent}%`;
 
   // Анимация появления вопроса и ответов
@@ -103,6 +106,13 @@ function loadQuestion(index) {
 
   // Анимация прогресс-бара
   gsap.to(progressBarElement, { width: `${progressPercent}%`, duration: 0.5 });
+
+  // Показать кнопку "Назад" после первого вопроса
+  if (index > 0) {
+    backButton.style.display = 'flex';
+  } else {
+    backButton.style.display = 'none';
+  }
 }
 
 function selectAnswer(element, answer) {
@@ -150,6 +160,7 @@ function proceedToNextQuestion() {
   const nextQuestionIndex = currentQuestion.nextQuestion instanceof Function ? currentQuestion.nextQuestion(selectedAnswers[0]) : currentQuestion.nextQuestion;
 
   if (nextQuestionIndex !== null) {
+    previousQuestions.push(currentQuestionIndex);
     currentQuestionIndex = nextQuestionIndex;
     loadQuestion(currentQuestionIndex);
     selectedAnswers = [];
@@ -160,62 +171,85 @@ function proceedToNextQuestion() {
 
 function showLoading() {
   // Скрываем inner и показываем loading
-  gsap.to(quizInner, { opacity: 0,visibility:'hidden', duration: 0.5, onComplete: () => {
-   
-    gsap.fromTo(quizLoading, { opacity: 0 ,visibility:'hidden'}, { opacity: 1,visibility:'visible', duration: 0.5 });
+  gsap.to(quizInner, { opacity: 0, visibility: 'hidden', duration: 0.5, onComplete: () => {
+    gsap.fromTo(quizLoading, { opacity: 0, visibility: 'hidden' }, { opacity: 1, visibility: 'visible', duration: 0.5 });
 
     const loadingTl = gsap.timeline()
-    loadingTl.fromTo('.loading-circle-black',{
-        x:-60,
-        opacity:0,
-    },{
-        opacity:1,
-        x:-60,
-        duration:0.5,
-         ease: "none"
+    loadingTl.fromTo('.loading-circle-black', {
+      x: -60,
+      opacity: 0,
+    }, {
+      opacity: 1,
+      x: -60,
+      duration: 0.5,
+      ease: "none"
     })
-    loadingTl.fromTo('.loading-circle-blue',{
-        x:60,
-        opacity:0,
-    },{
-        opacity:1,
-        x:60,
-        duration:0.5,
-         ease: "none"
-    },'-=0.5')
-   
-    loadingTl.to('.calc__quiz-loading-spinner',{
-       rotation:360,
-    
-       repeat:-1,
-       yoyo: false,
-        duration:1,
-         ease: "none"
-    },'-=0.5')
+    loadingTl.fromTo('.loading-circle-blue', {
+      x: 60,
+      opacity: 0,
+    }, {
+      opacity: 1,
+      x: 60,
+      duration: 0.5,
+      ease: "none"
+    }, '-=0.5')
+
+    loadingTl.to('.calc__quiz-loading-spinner', {
+      rotation: 360,
+      repeat: -1,
+      yoyo: false,
+      duration: 1,
+      ease: "none"
+    }, '-=0.5')
   }});
   setTimeout(() => {
     showResults();
-  }, 5000); 
+  }, 5000);
 }
 
 function showResults() {
- 
-  
   console.log(answers);
 
-  // Скрываем loading и показываем inner
   gsap.to(quizLoading, { opacity: 0, duration: 0.5, onComplete: () => {
-   
-    gsap.fromTo(quizResult, { opacity: 0, visibility:'hidden' }, { opacity: 1,visibility:'visible', duration: 0.5 });
+    gsap.fromTo(quizResult, { opacity: 0, visibility: 'hidden' }, { opacity: 1, visibility: 'visible', duration: 0.5 });
+    re
+  }});
+}
+
+function resetQuiz() {
+  currentQuestionIndex = 0;
+  answers = {};
+  selectedAnswers = [];
+  previousQuestions = [];
+  backButton.style.display = 'none';
+  resetButton.style.display = 'none';
+
+  gsap.to(quizResult, { opacity: 0, visibility: 'hidden', duration: 0.5, onComplete: () => {
+    gsap.fromTo(quizInner, { opacity: 0, visibility: 'hidden' }, { opacity: 1, visibility: 'visible', duration: 0.5 });
+    loadQuestion(currentQuestionIndex);
   }});
 }
 
 acceptButton.addEventListener('click', () => {
   nextQuestion();
 });
-function calcCost(){
-    return 27600
+
+backButton.addEventListener('click', () => {
+  if (previousQuestions.length > 0) {
+    currentQuestionIndex = previousQuestions.pop();
+    loadQuestion(currentQuestionIndex);
+    selectedAnswers = answers[quizData[currentQuestionIndex].question] || [];
+  }
+});
+
+resetButton.addEventListener('click', () => {
+  resetQuiz();
+});
+
+function calcCost() {
+  return 27600;
 }
+
 loadQuestion(currentQuestionIndex);
 
 const contactMethodInput = document.getElementById('connect');
@@ -238,15 +272,33 @@ emailRadio.addEventListener('change', () => {
   contactMethodInput.type = 'email'; // Валидация для email
 });
 
+contactMethodInput.addEventListener('change', () => { inputEmpty(contactMethodInput) })
+quizNameInput.addEventListener('input', () => { inputEmpty(quizNameInput) })
 
-contactMethodInput.addEventListener('change', () => {inputEmpty(contactMethodInput)})
-quizNameInput.addEventListener('input', () => {inputEmpty(quizNameInput)})
-
-
-function inputEmpty(input){
+function inputEmpty(input) {
   if (input.value.trim() !== '') {
     input.classList.add('not-empty');
   } else {
     input.classList.remove('not-empty');
   }
 }
+
+var btnHover = document.querySelector('.btn--hover');
+
+btnHover.addEventListener('mouseenter', function(e) {
+  var parentOffset = this.getBoundingClientRect();
+  var relX = e.pageX - parentOffset.left - window.scrollX;
+  var relY = e.pageY - parentOffset.top - window.scrollY;
+  var span = this.querySelector('span');
+  span.style.top = relY + 'px';
+  span.style.left = relX + 'px';
+});
+
+btnHover.addEventListener('mouseout', function(e) {
+  var parentOffset = this.getBoundingClientRect();
+  var relX = e.pageX - parentOffset.left - window.scrollX;
+  var relY = e.pageY - parentOffset.top - window.scrollY;
+  var span = this.querySelector('span');
+  span.style.top = relY + 'px';
+  span.style.left = relX + 'px';
+});

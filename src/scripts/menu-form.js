@@ -1,9 +1,9 @@
 import { gsap } from 'gsap';
-
+import { ScrollToPlugin } from 'gsap/all';
 import Swiper from 'swiper';
 import { Mousewheel } from 'swiper/modules';
 import 'swiper/css/bundle';
-
+gsap.registerPlugin(ScrollToPlugin)
 const contactMethodInput = document.getElementById('contactMethod');
 const telegramRadio = document.getElementById('telegram');
 const emailRadio = document.getElementById('email');
@@ -90,3 +90,21 @@ const swiper = new Swiper('.swiper', {
 });
 
 
+document.querySelectorAll('.menu__right-list-link').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const targetId = this.getAttribute('href').substring(1);
+    console.log(targetId);
+    const targetSection = document.getElementById(targetId);
+console.log(targetSection);
+console.log(targetSection.offsetTop);
+    if (targetSection) {
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: '#live',
+        ease: "power2.inOut"
+      });
+    }
+  });
+});

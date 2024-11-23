@@ -149,7 +149,7 @@ ScrollTrigger.create({
   trigger: '.wrapper',
   start: 'top top',
   end: '+=1500%', // Общая длина скроллинга
-  scrub: 2,
+  scrub: 3,
   pin: true,
   markers: true,
 });
@@ -169,13 +169,13 @@ siteTl.fromTo(
 siteTl.fromTo(
   '.about__title',
   {
-    x: 50,
-    '-webkit-text-stroke': '2px #ffffff',
+
+    '-webkit-text-stroke': '2px var(--white-color-10)',
   },
   {
-    x: 0,
+   
     color: 'transparent',
-    '-webkit-text-stroke': '2px #ffffff',
+    '-webkit-text-stroke': '2px var(--white-color-10)',
     opacity: 0.2,
     duration: baseDuration * durationFactor * 1.5,
     ease: 'power1.inOut',
@@ -189,22 +189,30 @@ siteTl.to('.about__circles', {
   duration: baseDuration * durationFactor,
 });
 
-siteTl.to('.about__circles', {
-  x: -550,
-  duration: baseDuration * 1.2,
-});
+siteTl.fromTo(
+  '.about__us',
+  {
+    x: 0,
+  },
+  {
+    x: -380,
+    duration: baseDuration,
+  },
+);
+
 
 siteTl.fromTo(
   '.about__web',
   {
     opacity: 0,
-    x: 0,
+  x:-70,
   },
   {
-    x: 400,
+x:-30,
     opacity: 1,
     duration: baseDuration,
   },
+  '-=2',
 );
 
 siteTl.fromTo(
@@ -214,23 +222,67 @@ siteTl.fromTo(
     x: 0,
   },
   {
-    x: 770,
+    x: 320,
     opacity: 1,
-    duration: baseDuration * durationFactor,
+    duration: baseDuration,
   },
-  '-=0.5',
+  '-=2',
+);
+siteTl.to(
+  '.about__circles',
+  
+  {
+    delay:2,
+  },
+  '-=1',
 );
 
-siteTl.to('.about__circles', {
-  stagger: 5,
-  delay: 1,
-  duration: baseDuration * 0.8,
-});
+
+siteTl.fromTo(
+  '.about__us',
+  {
+    x: -380,
+  },
+  {
+    x: 0,
+    duration: baseDuration,
+  },
+);
+
+
+siteTl.fromTo(
+  '.about__web',
+  {
+    
+  x:-30,
+  },
+  {
+x:0,
+    
+    duration: baseDuration,
+  },
+  '-=2',
+);
+
+siteTl.fromTo(
+  '.about__des',
+  {
+    x: 320,
+  },
+  {
+    x: 0,
+    duration: baseDuration,
+  },
+  '-=2',
+);
+
+
+
 
 siteTl.to('.about__web', {
   x: 0,
   zIndex: 1,
-  duration: baseDuration * durationFactor,
+  duration: 0.1,
 });
 
 siteTl.to(
@@ -238,7 +290,7 @@ siteTl.to(
   {
     x: 0,
     zIndex: 0,
-    duration: baseDuration * durationFactor,
+    duration: 0.1,
   },
   '-=0.5',
 );
@@ -354,23 +406,21 @@ siteTl.fromTo(
     yPercent: -30,
     duration: baseDuration * 2,
   },
-  '-=2.5',
+  '-=3.5',
 );
 
-const arrowTl = gsap.timeline(); // Отдельная временная шкала для анимации стрелки
-
-arrowTl.to('.adv__arrow', {
+siteTl.to('.adv__arrow', {
   rotation: 45,
   duration: 0.8,
   ease: 'power2.inOut',
 });
-siteTl.add(arrowTl, '+=0');
 
-siteTl.to('.adv__row', {
-  stagger: 2,
-  delay: 1,
-  duration: baseDuration * 1.2,
+siteTl.to('.adv__arrow', {
+  x:300,
+  duration: 0.8,
+  ease: 'power2.inOut',
 });
+
 
 siteTl.fromTo(
   '.adv__row',
@@ -379,8 +429,8 @@ siteTl.fromTo(
   },
   {
     xPercent: -120,
-    duration: baseDuration * 3,
-  },
+    duration: baseDuration * 4,
+  },'-=1'
 );
 
 siteTl.to('.adv__row', {
