@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>equinox</title>
-  <script type="module" crossorigin src="/equinox/assets/main-DufLQ9dn.js"></script>
-  <link rel="stylesheet" crossorigin href="/equinox/assets/main-CONndGbM.css">
+  <script type="module" crossorigin src="/equinox/assets/main-HI7jB5cr.js"></script>
+  <link rel="stylesheet" crossorigin href="/equinox/assets/main-ByW1gW7_.css">
 </head>
 
   <body class="body" >
@@ -118,7 +118,7 @@
                 <a href="#" class="menu__right-list-link">УСЛУГИ</a>
               </div>
               <div class="swiper-slide">
-                <a href="#" class="menu__right-list-link">ЭТАПЫ</a>
+                <a href="#live" class="menu__right-list-link">ЭТАПЫ</a>
               </div>
               <div class="swiper-slide">
                 <a href="#" class="menu__right-list-link">РАСЧЕТ</a>
@@ -424,7 +424,7 @@
   
 </section>
 
-          <section class="live main__live">
+          <section id="live" class="live main__live">
   <div class="container live__container">
     <h2 class="live__title">ЖИЗНЕННЫЙ ЦИКЛ ПРОЕКТА</h2>
     <p class="live__subtitle">
@@ -602,13 +602,22 @@
           Оставьте свои контакты, и мы проведем вас через процесс, поможем
           сформулировать идеи и найдем идеальное решение для вашего сайта.
         </p>
-        <button class="calc__help-btn">Помочь разобраться</button>
+        <button class="calc__help-btn btn--hover">Помочь разобраться <span></span></button>
       </div>
     </div>
     <div class="calc__quiz">
       <div class="calc__quiz-inner">
         <div class="calc__quiz-question">
-          <p class="quiz-question__number">01 /</p>
+          <div class="quiz-question__upper-row">
+           <span class="quiz-question__number"> 01 /</span>
+            <button class="quiz-question__back-btn"><svg width="29" height="22" viewBox="0 0 29 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line y1="-0.5" x2="15.0229" y2="-0.5" transform="matrix(-0.686039 -0.727564 -0.8893 0.457324 10.3069 21.8115)" stroke="#2D4CFF"/>
+              <line y1="-0.5" x2="15.0229" y2="-0.5" transform="matrix(-0.689446 0.724337 -0.887144 -0.461492 10.3582 0)" stroke="#2D4CFF"/>
+              <line y1="-0.5" x2="28.1038" y2="-0.5" transform="matrix(-0.999997 -0.00234638 -0.00234638 0.999997 28.699 11.3687)" stroke="#2D4CFF"/>
+              </svg>
+              Назад
+              </button>
+          </div>
           <p class="quiz-question__text">Вопрос?</p>
         </div>
         <div class="calc__quiz-answers">
@@ -684,16 +693,22 @@
         </div>
       </div>
       <div class="calc__quiz-result">
-        <p class="quiz-result__subtitle">
-          Вы на шаг ближе к вашему сайту мечты!
-        </p>
+        <button class="calc__quiz-result-reset">
+          <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M37 25.5C37 28.3919 35.9973 31.1944 34.1626 33.4299C32.328 35.6654 29.775 37.1956 26.9386 37.7598C24.1023 38.324 21.158 37.8872 18.6075 36.524C16.0571 35.1607 14.0582 32.9553 12.9515 30.2835C11.8448 27.6117 11.6988 24.6389 12.5382 21.8714C13.3777 19.104 15.1508 16.7133 17.5554 15.1066C19.9599 13.5 22.8472 12.7768 25.7252 13.0602C28.6032 13.3437 31.2939 14.6163 33.3388 16.6612" stroke="#131313"/>
+            <path d="M29.5 8.5L33.9999 16.5001" stroke="#131313"/>
+            <path d="M34.0586 16.5194L25 18" stroke="#131313"/>
+            <circle cx="25" cy="25" r="24.5" stroke="#131313"/>
+            </svg>
+            
+        </button>
         <p class="quiz-result__text">
           Мы подсчитали, что примерная стоимость разработки вашего сайта
           составляет:
         </p>
         <span class="quiz-result__price">~ 27 600 руб.</span>
         <form class="quiz-result__message">
-          <h4 class="quiz-resutl__message-title">Отличный выбор!</h4>
+          <h4 class="quiz-resutl__message-title"> Вы на шаг ближе к вашему сайту мечты!</h4>
           <p class="quiz-result__mesage-text">
             Чтобы мы могли связаться с вами и обсудить детали, оставьте свои
             контактные данные:
