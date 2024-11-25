@@ -1,17 +1,10 @@
 header {
   width: 100vw;
-  height: 100vh;
+  max-height: 100vh;
+  height: 100%;
   background: radial-gradient(circle at 0% 0%, #131313, #2d4cff, #3475ed);
   display: flex;
-
 }
-body {
-  margin: 0;
-  overflow-y: auto;
-  height: 100%;
-  background-color: #000;
-}
-
 
 @keyframes moveInCircle {
   0% {
@@ -183,19 +176,24 @@ body {
   &__container {
     position: relative;
     z-index: 1;
-   
   }
   &__upper {
     display: flex;
     align-items: center;
     padding: 30px 0;
     gap: 30px;
+    @include mobile{
+      gap: 0px;
+    }
   }
   &__logo {
     font-family: var(--font-family);
     font-weight: 700;
     font-size: 50px;
     color: var(--white-color-10);
+    @include mobile{
+     font-size: 30px;
+    }
   }
 
   &__swither {
@@ -204,14 +202,14 @@ body {
     position: relative;
     .white-circle {
       transform: translateX(-40px);
-      circle{
+      circle {
         fill: var(--white-color-10);
       }
     }
     .black-circle {
       position: relative;
       z-index: 1;
-      circle{
+      circle {
         fill: var(--black-color-10);
       }
     }
@@ -227,6 +225,9 @@ body {
       align-items: center;
       bottom: -26px;
       right: -219px;
+      @include mobile{
+        display: none;
+      }
       svg {
         animation: moveLine 2s ease-in-out infinite;
       }
@@ -234,12 +235,15 @@ body {
   }
 
   &__content {
-    margin-top: 180px;
+    padding-top: 18.89vh;
     display: flex;
     flex-direction: column;
     gap: 30px;
     align-items: center;
     justify-content: center;
+    @media screen and (max-height: 900px) {
+      padding-top: 12vh;
+    }
   }
 
   &__title {
@@ -255,6 +259,22 @@ body {
       -webkit-text-stroke: 1px transparent;
       color: var(--white-color-10);
     }
+    @media screen and (max-width: 1510px) {
+      font-size: 100px;
+    }
+    @include tablet {
+      font-size: 90px;
+    }
+    @media screen and (max-width: 840px) {
+      font-size: 80px;
+      white-space: wrap;
+    }
+    @include mobile {
+      font-size: 60px;
+    }
+    @media screen and (max-width: 440px) {
+      font-size: 50px;
+    }
   }
 
   &__subtitle {
@@ -263,24 +283,40 @@ body {
     font-size: 30px;
     text-align: center;
     color: var(--white-color-10);
+    @include tablet {
+      font-size: 22px;
+    }
+    @include mobile {
+      font-size: 20px;
+    }
+    @media screen and (max-width: 440px) {
+      font-size: 18px;
+    }
   }
- 
+
   &__scroll-down {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    margin-top: 90px;
-
+    position: absolute;
+    left: 50vw;
+    transform: translateX(-50%);
+    bottom: 10px;
     span {
       font-family: var(--font-family);
       font-weight: 300;
       font-size: 16px;
       text-align: center;
-      color: rgba(255, 255, 255, 0.5);
+      color: var(--white-color-10);
+      opacity: 0.6;
     }
     svg {
       animation: moveLine 2s ease-in-out infinite;
+      rect,
+      line {
+        stroke: var(--white-color-10);
+      }
     }
   }
 }
@@ -313,22 +349,18 @@ body {
   left: 50%;
   transform: translateX(-50%);
   bottom: -8%;
- z-index: 0;
+  z-index: 0;
 }
 .scroll-down-active {
   background-color: var(--black-color-10);
- 
- 
 }
 
 .light-active,
-.dark-active{
-  transition: all .3s ease-in-out;
+.dark-active {
+  transition: all 0.3s ease-in-out;
 }
 
 .black-circle circle,
-.white-circle circle{
-  transition: fill .3s ease-in-out;
+.white-circle circle {
+  transition: fill 0.3s ease-in-out;
 }
-
-

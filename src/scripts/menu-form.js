@@ -5,57 +5,72 @@ import { Mousewheel } from 'swiper/modules';
 import 'swiper/css/bundle';
 gsap.registerPlugin(ScrollToPlugin)
 
-// const formSendBtn = document.querySelector('.form__send-btn');
-// const sendText = formSendBtn.querySelector('.send-text');
-// const sendIcon = formSendBtn.querySelector('.send-icon');
+const formSendBtn = document.querySelector('.form__send-btn');
+const sendText = formSendBtn.querySelector('.send-text');
+const sendIcon = formSendBtn.querySelector('.send-icon');
 
-// formSendBtn.addEventListener('mouseover', () => {
-//   // Убираем все предыдущие анимации
-//   gsap.killTweensOf(formSendBtn);
-//   gsap.killTweensOf(sendText);
-//   gsap.killTweensOf(sendIcon);
+formSendBtn.addEventListener('mouseover', () => {
+  // Убираем все предыдущие анимации
+  gsap.killTweensOf(formSendBtn);
+  gsap.killTweensOf(sendText);
+  gsap.killTweensOf(sendIcon);
+  const formSendTl = gsap.timeline()
+  
+gsap.set(formSendBtn,{
+  borderRadius:'50px',
+})
+  formSendTl.to(formSendBtn, {
+    width: 300,
+    duration: 0.5,
+   
+    ease: 'elastic.out(1, 0.5)', // Пружина
+  }, );
 
-//   gsap.to(formSendBtn, {
-//     width: 300,
-//     duration: 0.3,
-//     borderRadius: '50px',
-//   });
+  formSendTl.to(sendText, {
+    opacity: 1,
+    duration: 0.5,
+    ease: 'power2.out', // Плавное появление текста
+  }, '<');
 
-//   gsap.to(sendText, {
-//     opacity: 1,
-//     duration: 0.3,
-//   });
+  formSendTl.to(sendIcon, {
+    rotation: 45,
+    duration: 0.3,
+    x: 80,
+    
+  }, '-=0.3');
+});
 
-//   gsap.to(sendIcon, {
-//     rotation: 45, // Поворачиваем иконку на 45 градусов
-//     duration: 0.4,
-//     x: 80,
-//   });
-// });
+formSendBtn.addEventListener('mouseleave', () => {
+  // Убираем все предыдущие анимации
+  gsap.killTweensOf(formSendBtn);
+  gsap.killTweensOf(sendText);
+  gsap.killTweensOf(sendIcon);
+const formSendTl = gsap.timeline()
 
-// formSendBtn.addEventListener('mouseleave', () => {
-//   // Убираем все предыдущие анимации
-//   gsap.killTweensOf(formSendBtn);
-//   gsap.killTweensOf(sendText);
-//   gsap.killTweensOf(sendIcon);
+gsap.set(formSendBtn,{
+  borderRadius:50,
+})
 
-//   gsap.to(formSendBtn, {
-//     borderRadius: '50%',
-//     width: 50,
-//     duration: 0.3,
-//   });
+formSendTl.to(formSendBtn, {
+    
+    width: 50,
+    duration: 0.5,
+    ease: 'elastic.out(1, 0.5)', // Пружина
+  });
 
-//   gsap.to(sendText, {
-//     opacity: 0,
-//     duration: 0.3,
-//   });
+  formSendTl.to(sendText, {
+    opacity: 0,
+    duration: 0.3,
+    ease: 'power2.out', // Плавное исчезновение текста
+  });
 
-//   gsap.to(sendIcon, {
-//     rotation: 0, // Возвращаем иконку в исходное положение
-//     x: 0,
-//     duration: 0.3,
-//   });
-// });
+  formSendTl.to(sendIcon, {
+    rotation: 0,
+    x: 0,
+    duration: 0.3,
+    ease: 'back.out(1.7)', // Легкий "прыжок" иконки назад
+  });
+});
 
 // Инициализация Swiper
 const swiper = new Swiper('.swiper', {

@@ -104,6 +104,9 @@ label {
   pointer-events: none;
   z-index: 1000;
   mix-blend-mode: difference; 
+  @include mobile{
+    display: none;
+  }
 }
 
 /* Увеличенный курсор (круг) */
@@ -121,8 +124,11 @@ label {
   align-items: center;
   color: white;
   font-size: 12px;
-
+ 
   transition: opacity 0.3s ease;
+  @include mobile{
+    display: none;
+  }
 }
 
 .cursor-text {
@@ -151,6 +157,10 @@ label {
     height: 0px;
     width: 100%;
     transition: transform 0.3s ease-in-out;
+  }
+  @include mobile{
+    top: 25px;
+    right: 15px;
   }
 
 }

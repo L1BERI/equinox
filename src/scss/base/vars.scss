@@ -6,6 +6,19 @@
     --white-color-10: #FFFFFF;
 
 
+
+
+     
+  
+
+  
+
+      --gradient-color-start: rgba(255, 255, 255, 0.1); /* Белый с прозрачностью */
+      --gradient-color-middle: rgba(255, 255, 255, 1); /* Белый */
+      --gradient-color-end: rgba(255, 255, 255, 0.1); /*
+
+
+
     --color-bg1: #131313; /* Очень тёмный оттенок для фона */
     --color-bg2: #131313; /* Тёмно-синий */
     --color1: 52, 117, 237; /* Голубой #3475ED */
@@ -23,7 +36,12 @@
   --white-color-10: #131313;
   --color-bg1:#ffffff;
   --color-bg2:#ffffff;
+
+  --gradient-color-start: rgba(0, 0, 0, 0.1); /* Черный с прозрачностью */
+  --gradient-color-middle: rgba(0, 0, 0, 1); /* Черный */
+  --gradient-color-end: rgba(0, 0, 0, 0.1); 
 }
+
 
   // fonts
 

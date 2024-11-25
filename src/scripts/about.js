@@ -25,8 +25,6 @@ ScrollTrigger.create({
   end: '+=2000%', // Общая длина скроллинга
   scrub: 2,
   pin: true,
- 
-  markers: true,
 });
 
 siteTl.to('.scroll-down-circle', { scale: 27.5, duration: baseDuration, immediateRender: false});
@@ -244,7 +242,7 @@ siteTl.fromTo(
   },
   {
     opacity: 1,
-    x: 0,
+    x: -15,
     duration: baseDuration * 0.7,
     ease:'none' 
   },
@@ -651,7 +649,7 @@ siteTl.fromTo(
     visibility: 'visible',
     ease:'none',
     duration: baseDuration * 2,
-  },'<1.5'
+  },'<3'
 );
 siteTl.fromTo(
   '.calc',
@@ -859,7 +857,7 @@ aboutWebBtn.addEventListener('click', () => {
       visibility: 'hidden',
     },
     {
-      x: 0,
+      x: -15,
       opacity: 1,
       visibility: 'visible',
     },
@@ -891,7 +889,7 @@ aboutDesBtn.addEventListener('click', () => {
       visibility: 'hidden',
     },
     {
-      x: 0,
+      x: -15,
       opacity: 1,
       visibility: 'visible',
     },
@@ -923,7 +921,7 @@ aboutUsBtn.addEventListener('click', () => {
       visibility: 'hidden',
     },
     {
-      x: 0,
+      x: -15,
       opacity: 1,
       visibility: 'visible',
     },

@@ -68,8 +68,9 @@
       font-family: var(--font-family);
       font-weight: 400;
       font-size: 20px;
-      color: #fff;
+      color: var(--white-color-10);
     }
+   
 
     .send-icon {
       transition: transform 0.3s ease; /* Плавный поворот иконки */
@@ -98,21 +99,82 @@
     border-right: 1px solid var(--white-color-10);
     height: 30%;
   }
-  .contact-method-radio {
+  .menu__inputs-wrapper {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    max-width: 300px;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+    gap: 21px;
+  }
+
+  .menu__input-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  .menu__input-connect {
+    width: 100%;
+  }
+  .menu__input-name,
+  .menu__input-type {
+    width: 100%;
+    border-bottom: 1px solid var(--white-color-10);
+    padding: 5px 10px;
+    background-color: transparent;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--white-color-10);
+    position: relative;
+    z-index: 1;
+  }
+
+  .menu__label-name,
+  .menu__placeholder-connect {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--white-color-10);
+    opacity: 0.5;
+    position: absolute;
+    left: 10px;
+    bottom: 5px;
+    transition: all 0.3s ease-in-out;
+    z-index: 0;
+  }
+
+  .menu__input-name:focus ~ .menu__label-name,
+  .menu__input-type:focus ~ .menu__placeholder-connect {
+    bottom: 30px;
+    font-size: 15px;
+  }
+  .menu__input-name.not-empty ~ .menu__label-name,
+  .menu__input-type.not-empty ~ .menu__placeholder-connect {
+    bottom: 30px;
+    font-size: 15px;
+  }
+  .menu__contact-method-radio {
+    display: flex;
     gap: 10px;
     margin-top: 10px;
-    padding-left: 10px;
   }
-  .contact-method-label {
-    width: 40px;
-    height: 40px;
+  .menu__method{
     border: 1px solid var(--white-color-10);
     border-radius: 50%;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  input[type='radio']:checked + .menu__method {
+    background-color: var(--blue-color-10);
+    border: 1px solid var(--blue-color-10);
+    color: var(--white-color-10);
+    svg path {
+      fill: var(--white-color-10);
+    }
   }
   &__left-logo {
     display: flex;
@@ -189,4 +251,17 @@
 fieldset {
   border: none;
   padding: 0;
+}
+[data-theme='light']{
+  .menu__label-name,
+.menu__placeholder-connect {
+  color: var(--white-color-10)
+}
+
+input[type='radio']:checked + .menu__method {
+  svg path {
+    fill: var(--black-color-10);
+  }
+
+}
 }

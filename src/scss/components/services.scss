@@ -70,6 +70,7 @@
   }
 
   &__btn {
+    margin-top: 20px;
     font-family: var(--font-family);
     font-weight: 400;
     font-size: 20px;
@@ -212,12 +213,18 @@
     left: -0.3%;
   }
   .wp {
-    top:68%;
-    left: -5%;
+    top:74%;
+    left: -3%;
   }
 
   .planet-wp {
     top: 93%;
     left: 8%;
   }
+}
+
+[data-theme='light']{
+    .services__btn{
+        color: var(--black-color-10);
+    }
 }

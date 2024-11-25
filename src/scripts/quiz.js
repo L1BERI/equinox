@@ -221,10 +221,9 @@ function resetQuiz() {
   answers = {};
   selectedAnswers = [];
   previousQuestions = [];
-  backButton.style.display = 'none';
-  resetButton.style.display = 'none';
+  
 
-  gsap.to(quizResult, { opacity: 0, visibility: 'hidden', duration: 0.5, onComplete: () => {
+  gsap.to([quizResult, quizLoading], { opacity: 0, visibility: 'hidden', duration: 0.5, onComplete: () => {
     gsap.fromTo(quizInner, { opacity: 0, visibility: 'hidden' }, { opacity: 1, visibility: 'visible', duration: 0.5 });
     loadQuestion(currentQuestionIndex);
   }});

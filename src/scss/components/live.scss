@@ -147,8 +147,27 @@
     font-size: 20px;
     letter-spacing: 0.05em;
     color: var(--white-color-10);
-    border: 1px solid #fff;
+    border: 1px solid var(--white-color-10);
     border-radius: 50px;
+    svg line{
+      transition: stroke .3s ease-in-out;
+      stroke: var(--white-color-10);
+    }
+    position: relative;
+    z-index: 1;
+    transition: color .3s ease-in-out;
+    overflow: hidden;
+    span{
+        background-color: var(--blue-color-10);
+
+    }
+    &:hover{
+        border:none;
+        color: var(--black-color-10);
+        svg line{
+          stroke: var(--black-color-10);
+        }
+    }
    
   }
 

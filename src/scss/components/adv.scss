@@ -93,3 +93,12 @@
     max-width: 251px;
   }
 }
+
+
+[data-theme='light']{
+  .adv__arrow{
+    svg line{
+      stroke: var(--white-color-10);
+    }
+  }
+}

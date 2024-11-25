@@ -49,7 +49,7 @@
     font-family: var(--font-family);
     font-weight: 700;
     font-size: 50px;
-    color: var(--white-color-10);
+    color: #fff;
 
     img {
       transform: scale(1.05);
@@ -63,6 +63,7 @@
   &__us {
     background-color: var(--blue-color-10);
     z-index: 2;
+  
     
   }
   &__web {

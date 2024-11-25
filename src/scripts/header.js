@@ -79,8 +79,10 @@ tl.fromTo(
       y: 0,
       opacity: 1,
       duration: 1,
+      clearProps: 'true,'
     },
   );
+  
 
 const burgerBtn = document.querySelector('.burger-menu');
 
