@@ -5,6 +5,26 @@
     --blue-color-10: #2d4cff;
     --white-color-10: #FFFFFF;
 
+
+    --color-bg1: #131313; /* Очень тёмный оттенок для фона */
+    --color-bg2: #131313; /* Тёмно-синий */
+    --color1: 52, 117, 237; /* Голубой #3475ED */
+    --color2: 45, 76, 255; /* Синий #2d4cff */
+    --color3: 45, 76, 255; /* Светло-синий */
+    --color4: 80, 100, 255; /* Средний синий */
+    --color5: 40, 50, 200; /* Тёмно-синий */
+    --color-interactive: 255, 255, 255; /* Новый цвет для интерактивных элементов */
+    --circle-size: 90%;
+    --blending: hard-light;
+
+[data-theme='light']{
+  --black-color-10: #ffffff;
+  --blue-color-10: #2d4cff;
+  --white-color-10: #131313;
+  --color-bg1:#ffffff;
+  --color-bg2:#ffffff;
+}
+
   // fonts
 
   --font-family: "Inter", sans-serif;

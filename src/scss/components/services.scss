@@ -1,0 +1,223 @@
+.services {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  opacity: 0.5;
+  // visibility: hidden;
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__planet {
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 25px;
+    z-index: 10;
+    &::before {
+      content: '';
+      width: 103%;
+      height: 103%;
+      border-radius: 50%;
+      display: block;
+      position: absolute;
+      background-color: var(--white-color-10);
+      flex-shrink: 0;
+      z-index: -1;
+      filter: blur(20px);
+      box-shadow: 0 0 75px 50px var(--blue-color-10); /* Аналог фильтра filter0 с эффектом размытия */
+    }
+    &::after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      display: block;
+      position: absolute;
+      background-color: var(--black-color-10);
+      flex-shrink: 0;
+      z-index: -1;
+    }
+  }
+
+  &__title {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 50px;
+    color: var(--white-color-10);
+  }
+
+  &__text {
+    font-family: var(--font-family);
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+    color: var(--white-color-10);
+    max-width: 570px;
+  }
+
+  &__btn {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--white-color-10);
+    padding: 13px 30px;
+    border-radius: 50px;
+    background-color:  var(--blue-color-10);
+    border:none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    transition: color .3s ease-in-out;
+    overflow: hidden;
+    span{
+        background-color: var(--white-color-10);
+    }
+    &:hover{
+        border:none;
+        color: var(--black-color-10);
+    }
+  }
+  
+  &__orbit {
+    position: absolute;
+  }
+  &__orbit-inner {
+    position: relative;
+  }
+
+  &__orbit-text {
+    position: absolute;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--white-color-10);
+    border: 1px solid var(--white-color-10);
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 13px 30px;
+  }
+  &__orbit-planet {
+    position: absolute;
+  }
+  .presentation {
+    top: 15%;
+    right: 2%;
+  }
+  .planet-presentation {
+    top: 35%;
+    right: 1%;
+  }
+  .posters {
+    top: 59%;
+    right: -6%;
+  }
+  .planet-posters {
+    top: 86%;
+    right: 15%;
+  }
+  .scripts {
+    top: 76%;
+    left: 2%;
+  }
+  .planet-scripts {
+    top: 95%;
+    left: 28%;
+  }
+  .correction {
+    top: 30%;
+    left: -8%;
+  }
+  .planet-correction {
+    top: 45%;
+    left: -0.7%;
+  }
+  .infographics {
+    top: 32%;
+    right: -5%;
+  }
+
+  .planet-infographics {
+    top: 65%;
+    right: 1%;
+  }
+  .banners {
+    top: 84%;
+    right: 3%;
+  }
+
+  .planet-banners {
+    top: 98%;
+    right: 17%;
+  }
+  .audit {
+    top: 60%;
+    left: -5%;
+  }
+
+  .planet-audit {
+    top: 78%;
+    left: 4.7%;
+  }
+  .animations {
+    top: 10%;
+    left: 1%;
+  }
+
+  .planet-animations {
+    top: 38%;
+    left: 0%;
+  }
+  .brendbook {
+    top: 10%;
+    right: 2%;
+  }
+
+  .planet-brendbook {
+    top: 40%;
+    right: -0.2%;
+  }
+  .adaptive {
+    top: 47%;
+    right: -4%;
+  }
+
+  .planet-adaptive {
+    top: 77%;
+    right: 2.7%;
+  }
+  .speed {
+    top:24%;
+    left: -4%;
+  }
+
+  .planet-speed {
+    top: 57%;
+    left: -0.3%;
+  }
+  .wp {
+    top:68%;
+    left: -5%;
+  }
+
+  .planet-wp {
+    top: 93%;
+    left: 8%;
+  }
+}

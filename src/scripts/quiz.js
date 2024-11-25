@@ -212,7 +212,7 @@ function showResults() {
 
   gsap.to(quizLoading, { opacity: 0, duration: 0.5, onComplete: () => {
     gsap.fromTo(quizResult, { opacity: 0, visibility: 'hidden' }, { opacity: 1, visibility: 'visible', duration: 0.5 });
-    re
+ 
   }});
 }
 
@@ -251,54 +251,70 @@ function calcCost() {
 }
 
 loadQuestion(currentQuestionIndex);
+const pageForms = document.querySelectorAll('form');
 
-const contactMethodInput = document.getElementById('connect');
-const contactMethodLabel = document.querySelector('.quiz-result__placeholder-connect');
-const quizNameInput = document.querySelector('.quiz-result__input-name');
-const telegramRadio = document.getElementById('telegram-quiz');
-const emailRadio = document.getElementById('email-quiz');
+pageForms.forEach(form => {
+  const contactMethodInput = form.querySelector('.input-connect');
+  const contactMethodLabel = form.querySelector('.placeholder-connect');
+  const quizNameInput = form.querySelector('.input-name');
+  const telegramRadio = form.querySelector('[id^="telegram-radio"]'); // ищем любой элемент, чей id начинается с 'telegram-radio'
+  const emailRadio = form.querySelector('[id^="email-radio"]'); // ищем любой элемент, чей id начинается с 'email-radio'
 
-telegramRadio.addEventListener('change', () => {
-  // Разблокируем поле и меняем placeholder для логина Телеграм
-  contactMethodInput.disabled = false;
-  contactMethodLabel.innerHTML = 'Введите ваш телеграм';
-  contactMethodInput.type = 'text'; // Логин Телеграма
-});
+ 
+  telegramRadio.addEventListener('change', () => {
+    if (telegramRadio.checked) {
+     
+      contactMethodInput.disabled = false;
+      contactMethodInput.value =''
+      contactMethodLabel.innerHTML= 'Введите ваш телеграм';
+      contactMethodInput.type = 'text';
+      inputEmpty(contactMethodInput)
+    }
+  });
 
-emailRadio.addEventListener('change', () => {
-  // Разблокируем поле и меняем placeholder для Email
-  contactMethodInput.disabled = false;
-  contactMethodLabel.innerHTML = 'Введите вашу почту';
-  contactMethodInput.type = 'email'; // Валидация для email
-});
+  // Обработчик для Email
+  emailRadio.addEventListener('change', () => {
+    if (emailRadio.checked) {
+      contactMethodInput.disabled = false;
+        contactMethodInput.value =''
+      contactMethodLabel.innerHTML = 'Введите вашу почту'; 
+      contactMethodInput.type = 'email';
+      inputEmpty(contactMethodInput)
+    }
+  });
 
-contactMethodInput.addEventListener('change', () => { inputEmpty(contactMethodInput) })
-quizNameInput.addEventListener('input', () => { inputEmpty(quizNameInput) })
+  // Обработчики для отслеживания пустоты инпутов
+  contactMethodInput.addEventListener('input', () => { inputEmpty(contactMethodInput) });
+  quizNameInput.addEventListener('input', () => { inputEmpty(quizNameInput) });
 
-function inputEmpty(input) {
-  if (input.value.trim() !== '') {
-    input.classList.add('not-empty');
-  } else {
-    input.classList.remove('not-empty');
+  function inputEmpty(input) {
+    if (input.value.trim() !== '') {
+      input.classList.add('not-empty');
+    } else {
+      input.classList.remove('not-empty');
+    }
   }
-}
-
-var btnHover = document.querySelector('.btn--hover');
-
-btnHover.addEventListener('mouseenter', function(e) {
-  var parentOffset = this.getBoundingClientRect();
-  var relX = e.pageX - parentOffset.left - window.scrollX;
-  var relY = e.pageY - parentOffset.top - window.scrollY;
-  var span = this.querySelector('span');
-  span.style.top = relY + 'px';
-  span.style.left = relX + 'px';
 });
 
-btnHover.addEventListener('mouseout', function(e) {
-  var parentOffset = this.getBoundingClientRect();
-  var relX = e.pageX - parentOffset.left - window.scrollX;
-  var relY = e.pageY - parentOffset.top - window.scrollY;
-  var span = this.querySelector('span');
-  span.style.top = relY + 'px';
-  span.style.left = relX + 'px';
-});
+
+var btnsHover = document.querySelectorAll('.btn--hover');
+btnsHover.forEach(btnHover => {
+  btnHover.addEventListener('mouseenter', function(e) {
+    var parentOffset = this.getBoundingClientRect();
+    var relX = e.pageX - parentOffset.left - window.scrollX;
+    var relY = e.pageY - parentOffset.top - window.scrollY;
+    var span = this.querySelector('span');
+    span.style.top = relY + 'px';
+    span.style.left = relX + 'px';
+  });
+  
+  btnHover.addEventListener('mouseout', function(e) {
+    var parentOffset = this.getBoundingClientRect();
+    var relX = e.pageX - parentOffset.left - window.scrollX;
+    var relY = e.pageY - parentOffset.top - window.scrollY;
+    var span = this.querySelector('span');
+    span.style.top = relY + 'px';
+    span.style.left = relX + 'px';
+  });
+})
+

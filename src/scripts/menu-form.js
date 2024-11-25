@@ -4,23 +4,6 @@ import Swiper from 'swiper';
 import { Mousewheel } from 'swiper/modules';
 import 'swiper/css/bundle';
 gsap.registerPlugin(ScrollToPlugin)
-const contactMethodInput = document.getElementById('contactMethod');
-const telegramRadio = document.getElementById('telegram');
-const emailRadio = document.getElementById('email');
-
-telegramRadio.addEventListener('change', () => {
-  // Разблокируем поле и меняем placeholder для логина Телеграм
-  contactMethodInput.disabled = false;
-  contactMethodInput.placeholder = 'Введите ваш телеграм';
-  contactMethodInput.type = 'text'; // Логин Телеграма
-});
-
-emailRadio.addEventListener('change', () => {
-  // Разблокируем поле и меняем placeholder для Email
-  contactMethodInput.disabled = false;
-  contactMethodInput.placeholder = 'Введите вашу почту';
-  contactMethodInput.type = 'email'; // Валидация для email
-});
 
 // const formSendBtn = document.querySelector('.form__send-btn');
 // const sendText = formSendBtn.querySelector('.send-text');

@@ -11,18 +11,7 @@ body {
   height: 100%;
   background-color: #000;
 }
-:root {
-  --color-bg1: #131313; /* Очень тёмный оттенок для фона */
-  --color-bg2: #131313; /* Тёмно-синий */
-  --color1: 52, 117, 237; /* Голубой #3475ED */
-  --color2: 45, 76, 255; /* Синий #2d4cff */
-  --color3: 45, 76, 255; /* Светло-синий */
-  --color4: 80, 100, 255; /* Средний синий */
-  --color5: 40, 50, 200; /* Тёмно-синий */
-  --color-interactive: 255, 255, 255; /* Новый цвет для интерактивных элементов */
-  --circle-size: 90%;
-  --blending: hard-light;
-}
+
 
 @keyframes moveInCircle {
   0% {
@@ -215,10 +204,16 @@ body {
     position: relative;
     .white-circle {
       transform: translateX(-40px);
+      circle{
+        fill: var(--white-color-10);
+      }
     }
     .black-circle {
       position: relative;
       z-index: 1;
+      circle{
+        fill: var(--black-color-10);
+      }
     }
     span {
       font-family: var(--font-family);
@@ -325,3 +320,15 @@ body {
  
  
 }
+
+.light-active,
+.dark-active{
+  transition: all .3s ease-in-out;
+}
+
+.black-circle circle,
+.white-circle circle{
+  transition: fill .3s ease-in-out;
+}
+
+

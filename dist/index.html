@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>equinox</title>
-  <script type="module" crossorigin src="/equinox/assets/main-HI7jB5cr.js"></script>
-  <link rel="stylesheet" crossorigin href="/equinox/assets/main-ByW1gW7_.css">
+  <script type="module" crossorigin src="/equinox/assets/main-mFnrjDYu.js"></script>
+  <link rel="stylesheet" crossorigin href="/equinox/assets/main-8Hp8ZfiM.css">
 </head>
 
-  <body class="body" >
+  <body class="body" data-theme = 'dark'>
  
       <div class="cursor-dot"></div>
       <div class="cursor-circle">
@@ -31,13 +31,88 @@
           </h4>
           <div class="form__inputs-wrapper">
             <fieldset class="form__inputs">
-              <input type="text" class="menu__input-name" placeholder="Имя" />
-              <input
+              <div class="footer__input-wrapper">
+                <input
                 type="text"
-                class="menu__input-connect"
-                placeholder="Выбери способ связи"
-                id="contactMethod"
+                class="footer__input-name input-name"
+                id="footer-name"
+                placeholder=" "
               />
+              <label class="footer__label-name" for="name">Имя</label>
+            </div>
+              <div class="menu__input-connect">
+                <div class="menu__input-wrapper">
+                  <input type="text" disabled class="menu__input-type input-connect" id="connect" placeholder=" " />
+                  <label class="menu__placeholder-connect placeholder-connect" for="connect"
+                    >Выберите способ связи</label
+                  >
+                </div>
+                <div class="menu__contact-method-radio">
+                  <input
+                    type="radio"
+                    id="telegram-radio-menu"
+                    name="connectMethod"
+                    value="telegram"
+                    hidden
+                  />
+                  <label for="telegram-radio-menu" class="menu__method">
+                  
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <g clip-path="url(#clip0_719_334)">
+                        <path
+                          d="M18.3764 1.77433L0.657317 8.64256C-0.0557229 8.96238 -0.296898 9.60293 0.484944 9.95053L5.03069 11.4026L16.0216 4.57487C16.6217 4.14622 17.2361 4.26053 16.7074 4.73204L7.2677 13.3232L6.97117 16.959C7.24583 17.5204 7.74873 17.523 8.0695 17.244L10.6811 14.7601L15.154 18.1267C16.1928 18.7449 16.7581 18.346 16.9816 17.2129L19.9154 3.24925C20.22 1.85449 19.7006 1.23996 18.3764 1.77433Z"
+                          fill="white"
+                        />
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_719_334">
+                          <rect width="20" height="20" fill="white" />
+                        </clipPath>
+                      </defs>
+                    </svg>
+                  </label>
+  
+                  <input
+                    type="radio"
+                    id="email-radio-menu"
+                    name="connectMethod"
+                    value="email"
+                    hidden
+                  />
+                  <label for="email-radio-menu" class="menu__method">
+                    <svg
+                      width="20"
+                      height="16"
+                      viewBox="0 0 20 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M13.3892 8.33343L19.7933 13.8226C19.9296 13.5106 19.9999 13.1739 20 12.8334V4.12427L13.3892 8.33343Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M10.4483 8.22754L19.91 2.20587C19.7714 1.67145 19.4598 1.19793 19.0239 0.859202C18.5879 0.520469 18.0521 0.335576 17.5 0.333374H2.49997C1.94788 0.335576 1.41205 0.520469 0.97608 0.859202C0.540114 1.19793 0.228537 1.67145 0.0899658 2.20587L9.55247 8.22754C9.6865 8.31226 9.84182 8.35723 10.0004 8.35723C10.1589 8.35723 10.3143 8.31226 10.4483 8.22754Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M0 4.12427V12.8334C0.000309152 13.1733 0.0706614 13.5095 0.206667 13.8209L6.61083 8.33344L0 4.12427Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M11.9284 9.2617L11.3451 9.6342C10.9434 9.88788 10.478 10.0225 10.003 10.0225C9.5279 10.0225 9.06256 9.88788 8.66089 9.6342L8.07756 9.26086C8.06506 9.27253 8.06006 9.28836 8.04756 9.2992L1.34839 15.0375C1.70232 15.2288 2.09776 15.3304 2.50006 15.3334H17.5001C17.9026 15.3304 18.2983 15.2288 18.6526 15.0375L11.9584 9.2992C11.9451 9.28836 11.9401 9.27253 11.9284 9.2617Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </label>
+                </div>
+            </div>
             </fieldset>
             <button class="form__send-btn">
                 <span class="send-text" style="opacity: 0;">Отправить</span>
@@ -68,7 +143,7 @@
             </button>
           </div>
           <div class="contact-method-radio">
-            <input type="radio" id="telegram" name="contactMethod" value="telegram" hidden>
+            <input type="radio" id="telegram-radio" name="contactMethod" value="telegram" hidden>
             <label for="telegram" class="contact-method-label">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_719_334)">
@@ -83,7 +158,7 @@
                     
             </label>
       
-            <input type="radio" id="email" name="contactMethod" value="email" hidden>
+            <input type="radio" id="email-radio" name="contactMethod" value="email" hidden>
             <label for="email" class="contact-method-label">
                 <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M13.3892 8.33343L19.7933 13.8226C19.9296 13.5106 19.9999 13.1739 20 12.8334V4.12427L13.3892 8.33343Z" fill="white"/>
@@ -136,7 +211,7 @@
 </div>
 
       
-        <div class="wrapper scroll-container" >
+        <div class="wrapper" data-scroll-container>
           
           <header class="header">
   <div class="gradient-bg">
@@ -166,7 +241,7 @@
   <div class="container header__container">
     <div class="header__upper" >
       <a href="/" class="header__logo" style="cursor: pointer;">equinox</a>
-      <button class="header__swither">
+      <button class="header__swither dark-active" date-theme-switcher>
         <svg
           class="black-circle"
           width="50"
@@ -587,6 +662,138 @@
   </div>
 </section>
 
+          <section class="main__services services">
+  <div class="container services__container">
+    <div class="services__planet">
+      <h4 class="services__title">БОЛЬШЕ УСЛУГ</h4>
+      <p class="services__text">
+        Если у вас есть особая идея, напишите нам. Мы открыты для обсуждения
+        любых проектов и готовы найти лучшее решение для вас.
+      </p>
+      <button class="services__btn btn--hover">Узнать больше о наших возможностях <span></span></button>
+    </div>
+    <div class="services__orbit services__first-orbit">
+      <div class="services__orbit-inner">
+            <svg width="1100" height="1080" viewBox="0 0 1100 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="550" cy="540" r="549.5" stroke="url(#paint0_linear_1061_18)" stroke-opacity="0.3"/>
+                <defs>
+                <linearGradient id="paint0_linear_1061_18" x1="550" y1="-10" x2="550" y2="1090" gradientUnits="userSpaceOnUse">
+                <stop stop-color="white" stop-opacity="0.1"/>
+                <stop offset="0.5" stop-color="white"/>
+                <stop offset="1" stop-color="white" stop-opacity="0.1"/>
+                </linearGradient>
+                </defs>
+                </svg>
+                
+            <span class="services__orbit-text presentation">Презентация</span>
+            <span class="services__orbit-planet planet-presentation">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="10" fill="#2D4CFF" />
+                  </svg>
+            </span>
+            <span class="services__orbit-text posters">Постеры</span>
+            <span class="services__orbit-planet planet-posters">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="10" fill="#2D4CFF" />
+                  </svg>
+            </span>
+            <span class="services__orbit-text correction">Исправление верстки</span>
+            <span class="services__orbit-planet planet-correction">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="10" fill="#2D4CFF" />
+                  </svg>
+            </span>
+            <span class="services__orbit-text scripts">Скрипты</span>
+            <span class="services__orbit-planet planet-scripts">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="10" fill="#2D4CFF" />
+                  </svg>
+            </span>
+      </div>
+    </div>   
+    <div class="services__orbit services__second-orbit">
+      <div class="services__orbit-inner">
+        <svg width="1400" height="1080" viewBox="0 0 1400 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="700" cy="540" r="699.5" stroke="url(#paint0_linear_1061_19)" stroke-opacity="0.3" />
+            <defs>
+              <linearGradient id="paint0_linear_1061_19" x1="700" y1="-160" x2="700" y2="1240" gradientUnits="userSpaceOnUse">
+                <stop stop-color="white" stop-opacity="0.1" />
+                <stop offset="0.5" stop-color="white" />
+                <stop offset="1" stop-color="white" stop-opacity="0.1" />
+              </linearGradient>
+            </defs>
+          </svg>
+                
+            <span class="services__orbit-text infographics">Инфографика</span>
+            <span class="services__orbit-planet planet-infographics">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="10" fill="#2D4CFF" />
+                  </svg>
+            </span>
+            <span class="services__orbit-text banners">Баннеры</span>
+            <span class="services__orbit-planet planet-banners">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="10" fill="#2D4CFF" />
+                  </svg>
+            </span>
+            <span class="services__orbit-text audit">Аудит сайта</span>
+            <span class="services__orbit-planet planet-audit">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="10" fill="#2D4CFF" />
+                  </svg>
+            </span>
+            <span class="services__orbit-text animations">Анимации CSS/JS</span>
+            <span class="services__orbit-planet planet-animations">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="10" fill="#2D4CFF" />
+                  </svg>
+            </span>
+      </div>
+    </div>   
+    <div class="services__orbit services__third-orbit">
+      <div class="services__orbit-inner">
+        <svg width="1700" height="1080" viewBox="0 0 1700 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="850" cy="540" r="849.5" stroke="url(#paint0_linear_1061_21)" stroke-opacity="0.3" />
+            <defs>
+              <linearGradient id="paint0_linear_1061_21" x1="850" y1="-310" x2="850" y2="1390" gradientUnits="userSpaceOnUse">
+                <stop stop-color="white" stop-opacity="0.1" />
+                <stop offset="0.5" stop-color="white" />
+                <stop offset="1" stop-color="white" stop-opacity="0.1" />
+              </linearGradient>
+            </defs>
+          </svg>
+            <span class="services__orbit-text brendbook">Брендбук</span>
+            <span class="services__orbit-planet planet-brendbook">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="10" fill="#2D4CFF" />
+                  </svg>
+            </span>
+            <span class="services__orbit-text adaptive">Адаптив</span>
+            <span class="services__orbit-planet planet-adaptive">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="10" fill="#2D4CFF" />
+                  </svg>
+            </span>
+            <span class="services__orbit-text speed">Ускорение сайта</span>
+            <span class="services__orbit-planet planet-speed">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="10" fill="#2D4CFF" />
+                  </svg>
+            </span>
+            <span class="services__orbit-text wp">CMS Wordpress</span>
+            <span class="services__orbit-planet planet-wp">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="10" cy="10" r="10" fill="#2D4CFF" />
+                  </svg>
+            </span>
+      </div>
+    </div>   
+    
+     
+   
+  </div>
+</section>
+
           <section class="calc main__calc">
   <div class="container calc__container">
     <div class="calc__content">
@@ -717,7 +924,7 @@
            <div class="quiz-result__input-wrapper">
               <input
                 type="text"
-                class="quiz-result__input-name"
+                class="quiz-result__input-name input-name"
                 id="quiz-result-name"
                 placeholder=" "
               />
@@ -725,20 +932,20 @@
            </div>
             <div class="quiz-result__input-connect">
               <div class="quiz-result__input-wrapper">
-                <input type="text" class="quiz-result__input-type" id="connect" placeholder=" " />
-                <label class="quiz-result__placeholder-connect" for="connect"
+                <input type="text"  disabled  class="quiz-result__input-type input-connect" id="connect" placeholder=" " />
+                <label  class="quiz-result__placeholder-connect placeholder-connect" for="connect"
                   >Выберите способ связи</label
                 >
               </div>
               <div class="quiz-result__contact-method-radio">
                 <input
                   type="radio"
-                  id="telegram-quiz"
+                  id="telegram-radio-quiz"
                   name="connectMethod"
                   value="telegram"
                   hidden
                 />
-                <label for="telegram-quiz" class="quiz-result__method">
+                <label for="telegram-radio-quiz" class="quiz-result__method">
                 
                   <svg
                     width="20"
@@ -764,12 +971,12 @@
 
                 <input
                   type="radio"
-                  id="email-quiz"
+                  id="email-radio-quiz"
                   name="connectMethod"
                   value="email"
                   hidden
                 />
-                <label for="email-quiz" class="quiz-result__method">
+                <label for="email-radio-quiz" class="quiz-result__method">
                   <svg
                     width="20"
                     height="16"
@@ -836,6 +1043,133 @@
     </div>
   </div>
 </section>
+
+          <footer class="footer">
+  <div class="container footer__container">
+    <div class="footer__left">
+        <div class="footer__left-white"></div>
+        <div class="footer__left-black"></div>
+      <div class="footer__left-inner">
+          <h4 class="footer__title">Давайте создадим что-то незабываемое!</h4>
+          <p class="footer__text">
+            Поделитесь с нами своей мечтой, и мы поможем ей воплотиться в жизнь.
+            Заполните форму ниже, и мы вскоре свяжемся с вами для обсуждения
+            деталей!
+          </p>
+          <form class="footer__form">
+            <div class="footer__form-inner">
+                <div class="footer__inputs-wrapper">
+                    <div class="footer__input-wrapper">
+                        <input
+                        type="text"
+                        class="footer__input-name input-name"
+                        id="footer-name"
+                        placeholder=" "
+                      />
+                      <label class="footer__label-name" for="name">Имя</label>
+                    </div>
+                    <div class="footer__input-connect">
+                        <div class="footer__input-wrapper">
+                          <input type="text"  disabled  class="footer__input-type input-connect" id="footer__connect" placeholder=" " />
+                          <label class="footer__placeholder-connect placeholder-connect" for="footer__connect">Выберите способ связи</label>
+                        </div>
+                        <div class="footer__contact-method-radio">
+                          <input
+                            type="radio"
+                            id="telegram-radio-footer"
+                            name="connectMethod"
+                            value="telegram"
+                            hidden
+                          />
+                          <label for="telegram-radio-footer" class="footer__method">
+                          
+                            <svg
+                              width="20"
+                              height="20"
+                              viewBox="0 0 20 20"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g clip-path="url(#clip0_719_334)">
+                                <path
+                                  d="M18.3764 1.77433L0.657317 8.64256C-0.0557229 8.96238 -0.296898 9.60293 0.484944 9.95053L5.03069 11.4026L16.0216 4.57487C16.6217 4.14622 17.2361 4.26053 16.7074 4.73204L7.2677 13.3232L6.97117 16.959C7.24583 17.5204 7.74873 17.523 8.0695 17.244L10.6811 14.7601L15.154 18.1267C16.1928 18.7449 16.7581 18.346 16.9816 17.2129L19.9154 3.24925C20.22 1.85449 19.7006 1.23996 18.3764 1.77433Z"
+                                  fill="white"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_719_334">
+                                  <rect width="20" height="20" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          </label>
+          
+                          <input
+                            type="radio"
+                            id="email-radio-footer"
+                            name="connectMethod"
+                            value="email"
+                            hidden
+                          />
+                          <label for="email-radio-footer" class="footer__method">
+                            <svg
+                              width="20"
+                              height="16"
+                              viewBox="0 0 20 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M13.3892 8.33343L19.7933 13.8226C19.9296 13.5106 19.9999 13.1739 20 12.8334V4.12427L13.3892 8.33343Z"
+                                fill="white"
+                              />
+                              <path
+                                d="M10.4483 8.22754L19.91 2.20587C19.7714 1.67145 19.4598 1.19793 19.0239 0.859202C18.5879 0.520469 18.0521 0.335576 17.5 0.333374H2.49997C1.94788 0.335576 1.41205 0.520469 0.97608 0.859202C0.540114 1.19793 0.228537 1.67145 0.0899658 2.20587L9.55247 8.22754C9.6865 8.31226 9.84182 8.35723 10.0004 8.35723C10.1589 8.35723 10.3143 8.31226 10.4483 8.22754Z"
+                                fill="white"
+                              />
+                              <path
+                                d="M0 4.12427V12.8334C0.000309152 13.1733 0.0706614 13.5095 0.206667 13.8209L6.61083 8.33344L0 4.12427Z"
+                                fill="white"
+                              />
+                              <path
+                                d="M11.9284 9.2617L11.3451 9.6342C10.9434 9.88788 10.478 10.0225 10.003 10.0225C9.5279 10.0225 9.06256 9.88788 8.66089 9.6342L8.07756 9.26086C8.06506 9.27253 8.06006 9.28836 8.04756 9.2992L1.34839 15.0375C1.70232 15.2288 2.09776 15.3304 2.50006 15.3334H17.5001C17.9026 15.3304 18.2983 15.2288 18.6526 15.0375L11.9584 9.2992C11.9451 9.28836 11.9401 9.27253 11.9284 9.2617Z"
+                                fill="white"
+                              />
+                            </svg>
+                          </label>
+                        </div>
+                    </div>
+                    
+                </div>
+                <button class="footer__btn-send btn--hover">
+                    Отправить
+                    <span></span>
+                    <svg width="29" height="22" viewBox="0 0 29 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line y1="-0.5" x2="15.0229" y2="-0.5" transform="matrix(0.686039 -0.727564 0.8893 0.457324 18.3921 21.8115)" stroke="white"/>
+                        <line y1="-0.5" x2="15.0229" y2="-0.5" transform="matrix(0.689446 0.724337 0.887144 -0.461492 18.3408 0)" stroke="white"/>
+                        <line x1="-0.00117319" y1="10.8687" x2="28.1025" y2="10.8027" stroke="white"/>
+                        </svg>
+                        
+                  </button>
+            </div>
+          </form>
+      </div>
+    </div>
+    <div class="footer__right">
+        <a href="#" class="footer__logo">equinox</a>
+        <ul class="footer__contact-list">
+            <li class="footer__contact-item">
+                <a href="#" class="footer__contact-link">@equinox</a>
+               
+            </li>
+            <li class="footer__contact-item">
+                <a href="#" class="footer__contact-link">equinox@gmail.com</a>
+               
+            </li>
+        </ul>
+    </div>
+  </div>
+</footer>
 
         </div>
      

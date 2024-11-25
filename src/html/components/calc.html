@@ -128,7 +128,7 @@
            <div class="quiz-result__input-wrapper">
               <input
                 type="text"
-                class="quiz-result__input-name"
+                class="quiz-result__input-name input-name"
                 id="quiz-result-name"
                 placeholder=" "
               />
@@ -136,20 +136,20 @@
            </div>
             <div class="quiz-result__input-connect">
               <div class="quiz-result__input-wrapper">
-                <input type="text" class="quiz-result__input-type" id="connect" placeholder=" " />
-                <label class="quiz-result__placeholder-connect" for="connect"
+                <input type="text"  disabled  class="quiz-result__input-type input-connect" id="connect" placeholder=" " />
+                <label  class="quiz-result__placeholder-connect placeholder-connect" for="connect"
                   >Выберите способ связи</label
                 >
               </div>
               <div class="quiz-result__contact-method-radio">
                 <input
                   type="radio"
-                  id="telegram-quiz"
+                  id="telegram-radio-quiz"
                   name="connectMethod"
                   value="telegram"
                   hidden
                 />
-                <label for="telegram-quiz" class="quiz-result__method">
+                <label for="telegram-radio-quiz" class="quiz-result__method">
                 
                   <svg
                     width="20"
@@ -175,12 +175,12 @@
 
                 <input
                   type="radio"
-                  id="email-quiz"
+                  id="email-radio-quiz"
                   name="connectMethod"
                   value="email"
                   hidden
                 />
-                <label for="email-quiz" class="quiz-result__method">
+                <label for="email-radio-quiz" class="quiz-result__method">
                   <svg
                     width="20"
                     height="16"
