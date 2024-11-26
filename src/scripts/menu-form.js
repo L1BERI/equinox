@@ -95,7 +95,7 @@ formSendTl.to(formSendBtn, {
                    swiper = new Swiper('.swiper', {
                     modules: [Mousewheel],
                     direction: 'vertical',
-                    slidesPerView: 3,
+                    slidesPerView: 5,
                     loop: true,
                     centeredSlides: true,
                     initialSlide: 2,

@@ -28,6 +28,10 @@ export const themeSwitcher = () => {
         setTheme(newTheme);
       
        location.reload();
+       const savedScrollPosition = localStorage.getItem('scrollPosition');
+       if (savedScrollPosition !== null) {
+           window.scrollTo(0, parseInt(savedScrollPosition, 10));
+       }
     });
 
     function setTheme(theme) {
