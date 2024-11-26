@@ -48,9 +48,10 @@ siteTl.fromTo(
     opacity: 1,
   },
   {
+    delay:1,
     color: 'transparent',
     opacity: 0.2,
-    duration: baseDuration * durationFactor * 1.5,
+    duration: baseDuration * durationFactor * 3,
     ease: 'power2.inOut', // Более плавный переход
   },
   '-=0.5'
@@ -856,7 +857,7 @@ aboutWebBtn.addEventListener('click', () => {
       visibility: 'hidden',
     },
     {
-      x: -15,
+      x: 10,
       opacity: 1,
       visibility: 'visible',
     },
@@ -888,7 +889,7 @@ aboutDesBtn.addEventListener('click', () => {
       visibility: 'hidden',
     },
     {
-      x: -15,
+      x: 10,
       opacity: 1,
       visibility: 'visible',
     },
@@ -920,7 +921,7 @@ aboutUsBtn.addEventListener('click', () => {
       visibility: 'hidden',
     },
     {
-      x: -15,
+      x: 10,
       opacity: 1,
       visibility: 'visible',
     },
