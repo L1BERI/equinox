@@ -27,8 +27,9 @@
     }
     @media screen and (max-width: 682px) {
       height: 40vh;
-      flex-direction: column;
+      flex-direction: column-reverse;
     }
+
   }
   &__left-form {
     height: 70%;
@@ -146,6 +147,9 @@
   &__left-logo {
     border-right: 1px solid var(--white-color-10);
     height: 30%;
+    @include mobile{
+      height: auto;
+    }
   }
   .menu__inputs-wrapper {
     display: flex;
@@ -242,6 +246,10 @@
     padding-bottom: 50px;
     padding-left: 50px;
     position: relative;
+    @include mobile{
+      padding: 10px;
+      font-size: 24px;
+    }
   }
   input[type='radio']:checked + .contact-method-label {
     background-color: var(--blue-color-10);
@@ -262,7 +270,7 @@
       padding: 20px 10px;
     }
     @include mobile {
-      height: 50vh;
+      height: 100%;
       flex-shrink: 0;
     }
   }
@@ -277,6 +285,9 @@
     text-align: right;
     @media screen and (max-width: 682px) {
       gap: 15px;
+    }
+    @include mobile{
+      gap: 5px;
     }
   
   }
