@@ -20,24 +20,25 @@ gsap.set(formSendBtn,{
   borderRadius:'50px',
 })
   formSendTl.to(formSendBtn, {
-    width: 300,
+    width: 200,
     duration: 0.5,
    
     ease: 'elastic.out(1, 0.5)', // Пружина
+  }, );
+  formSendTl.to(sendIcon, {
+    x: 80,
+    rotation: 45,
+    duration: 0.3,
+    
   }, );
 
   formSendTl.to(sendText, {
     opacity: 1,
     duration: 0.5,
+   
     ease: 'power2.out', // Плавное появление текста
-  }, '<');
+  },'<0.3');
 
-  formSendTl.to(sendIcon, {
-    rotation: 45,
-    duration: 0.3,
-    x: 80,
-    
-  }, '-=0.3');
 });
 
 formSendBtn.addEventListener('mouseleave', () => {
