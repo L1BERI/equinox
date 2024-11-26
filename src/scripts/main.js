@@ -1,4 +1,5 @@
 import '../scss/main.scss';
+import './preloader';
 import './theme';
 import './header';
 import {gsapCursor} from './cursor';

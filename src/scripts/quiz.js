@@ -115,8 +115,13 @@ function loadQuestion(index) {
   }
 }
 
+let customAnswer = ""; // Переменная для сохранения текста из текстового поля
+
 function selectAnswer(element, answer) {
   const currentQuestion = quizData[currentQuestionIndex];
+  const existingTextarea = document.querySelector('.quiz__textarea');
+  const warningSpan = document.querySelector('.quiz__warning');
+
   if (currentQuestion.multiple) {
     element.classList.toggle('answer__active');
     if (selectedAnswers.includes(answer)) {
@@ -132,29 +137,69 @@ function selectAnswer(element, answer) {
     element.classList.add('answer__active');
     selectedAnswers = [answer];
   }
-}
 
-function nextQuestion() {
-  if (selectedAnswers.length > 0) {
-    const currentQuestion = quizData[currentQuestionIndex];
-    answers[currentQuestion.question] = selectedAnswers;
+  // Логика для "Другие(уточните)"
+  if (selectedAnswers.includes("Другие(уточните)")) {
+    if (!existingTextarea) {
+      // Создаём поле и спан, если их ещё нет
+      const newTextarea = document.createElement('textarea');
+      newTextarea.classList.add('quiz__textarea');
+      newTextarea.placeholder = 'Уточните ваш ответ';
+      answersContainer.appendChild(newTextarea);
 
-    if (selectedAnswers.includes("Другие(уточните)")) {
-      const textarea = document.createElement('textarea');
-      textarea.classList.add('quiz__textarea');
-      textarea.placeholder = 'Уточните ваш ответ';
-      answersContainer.appendChild(textarea);
-      textarea.focus();
-      textarea.addEventListener('blur', () => {
-        answers[currentQuestion.question].push(` (${textarea.value})`);
-        proceedToNextQuestion();
+      const newWarningSpan = document.createElement('span');
+      newWarningSpan.classList.add('quiz__warning');
+      newWarningSpan.textContent = "Уточните, пожалуйста, какие элементы вас интересуют?";
+      newWarningSpan.style.opacity = 0; // Скрываем спан изначально
+      answersContainer.appendChild(newWarningSpan);
+
+      newTextarea.focus();
+      newTextarea.value = customAnswer; // Восстанавливаем сохранённый текст
+
+      newTextarea.addEventListener('input', () => {
+        customAnswer = newTextarea.value.trim(); // Обновляем текст
+        if (customAnswer !== "") {
+          newWarningSpan.style.opacity = 0; // Скрываем спан, если текст введён
+        }
       });
-    } else {
-      proceedToNextQuestion();
+    }
+  } else {
+    // Удаляем textarea, если "Другие(уточните)" снимается
+    if (existingTextarea) {
+      customAnswer = existingTextarea.value.trim(); // Сохраняем текст перед удалением
+      existingTextarea.remove();
+    }
+
+    if (warningSpan) {
+      warningSpan.remove();
     }
   }
 }
 
+
+function nextQuestion() {
+  const textarea = document.querySelector('.quiz__textarea');
+  const warningSpan = document.querySelector('.quiz__warning');
+
+  if (textarea && textarea.value.trim() === "") {
+    // Показать спан и анимировать тряску
+    gsap.fromTo(warningSpan,{opacity:0,y:-20}, {y:-10, opacity: 1, duration: 0.5 }); // Плавное появление спана
+    gsap.fromTo(
+      textarea,
+      { x: -10 },
+      { x: 10, duration: 0.1, repeat: 3, yoyo: true } // Анимация тряски
+    );
+    return; // Прервать переход, если текст не заполнен
+  }
+
+  // Сохраняем ответ и переходим к следующему вопросу
+  if (selectedAnswers.length > 0) {
+    const currentQuestion = quizData[currentQuestionIndex];
+    answers[currentQuestion.question] = selectedAnswers;
+
+    proceedToNextQuestion();
+  }
+}
 function proceedToNextQuestion() {
   const currentQuestion = quizData[currentQuestionIndex];
   const nextQuestionIndex = currentQuestion.nextQuestion instanceof Function ? currentQuestion.nextQuestion(selectedAnswers[0]) : currentQuestion.nextQuestion;
@@ -221,7 +266,7 @@ function resetQuiz() {
   answers = {};
   selectedAnswers = [];
   previousQuestions = [];
-  
+  customAnswer = '';
 
   gsap.to([quizResult, quizLoading], { opacity: 0, visibility: 'hidden', duration: 0.5, onComplete: () => {
     gsap.fromTo(quizInner, { opacity: 0, visibility: 'hidden' }, { opacity: 1, visibility: 'visible', duration: 0.5 });
