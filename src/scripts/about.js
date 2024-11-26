@@ -242,7 +242,7 @@ siteTl.fromTo(
   },
   {
     opacity: 1,
-    x: -15,
+    x: 10,
     duration: baseDuration * 0.7,
     ease:'none' 
   },
@@ -300,7 +300,7 @@ siteTl.fromTo(
     duration: baseDuration * 2,
     ease:'none' 
   },
-  '-=3.5',
+  '<',
 );
 
 siteTl.to('.adv__arrow', {

@@ -224,6 +224,9 @@
     color: var(--black-color-10);
     border: 1px solid var(--blue-color-10);
     background-color: transparent;
+    &:focus{
+      border: 1px sold var(--black-color-10);
+    }
   }
   .quiz__warning{
     font-family: var(--font-family);
@@ -487,7 +490,7 @@
     background-color: rgba(255, 255, 255, 0.2);
   }
   .quiz-bottom__progress-complete{
-    background-color: var(--black-color-10);
+    background-color: var(--blue-color-10);
   }
   .calc__quiz{
     background: url('./../assets/content/img/grid-dark.png'), var(--white-color-10);

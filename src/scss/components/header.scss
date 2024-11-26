@@ -257,10 +257,7 @@ header {
     max-width: 1402px;
     -webkit-text-stroke: 1px var(--white-color-10);
     white-space: nowrap;
-    span {
-      -webkit-text-stroke: 1px transparent;
-      color: var(--white-color-10);
-    }
+  
     @media screen and (max-width: 1510px) {
       font-size: 100px;
     }
@@ -371,4 +368,21 @@ header {
 .black-circle circle,
 .white-circle circle {
   transition: fill 0.3s ease-in-out;
+}
+
+[data-theme='light']{
+  .header__title{
+    .shadow-header {
+      -webkit-text-stroke: 1px transparent;
+      color: var(--white-color-10);
+    }
+  }
+}
+[data-theme='dark']{
+  .header__title{
+    .light-header {
+      -webkit-text-stroke: 1px transparent;
+      color: var(--white-color-10);
+    }
+  }
 }

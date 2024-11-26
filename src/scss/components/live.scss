@@ -162,10 +162,10 @@
 
     }
     &:hover{
-        border:none;
-        color: var(--black-color-10);
+      
+        color: var(--white-color-10);
         svg line{
-          stroke: var(--black-color-10);
+          stroke: var(--white-color-10);
         }
     }
    
@@ -175,4 +175,19 @@
     opacity: 0.6;
     cursor: none;
   }
+}
+
+
+[data-theme='light']{
+  .live-btn{
+  transition: all .4s ease-in;
+    &:hover{
+       
+        color: var(--black-color-10);
+        svg line{
+          stroke: var(--black-color-10);
+        }
+    }
+   
+}
 }
