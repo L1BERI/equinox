@@ -98,6 +98,7 @@ burgerBtn.addEventListener('click', (e) => {
   const menuWrapper = document.querySelector('.menu');
   menuWrapper.classList.toggle('menu-active');
   burgerBtn.classList.toggle('burger-active');
+  document.body.classList.toggle('body--fixed')
     let menuTl = gsap.timeline();
     let yValue = window.innerWidth <= 682 ? 0 : -200;
   if (menuWrapper.classList.contains('menu-active')) {

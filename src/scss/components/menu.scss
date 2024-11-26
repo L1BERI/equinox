@@ -70,6 +70,9 @@
      margin-bottom: 20px;
      font-size: 16px;
     }
+    @include mobile{
+      font-size: 13px;
+    }
   }
   .form__inputs-wrapper {
     display: flex;
@@ -258,12 +261,15 @@
       width: 100%;
       padding: 20px 10px;
     }
+    @include mobile {
+      height: 50vh;
+      flex-shrink: 0;
+    }
   }
   &__right-wrapper {
     height: 100%;
-    @media screen and (max-width: 682px) {
-      height: auto;
-    }
+   
+    
   }
   &__right-list {
     display: flex;
@@ -271,9 +277,8 @@
     text-align: right;
     @media screen and (max-width: 682px) {
       gap: 15px;
-   
-      text-align: center;
     }
+  
   }
   &__right-list-link {
     font-family: var(--font-family);
@@ -290,7 +295,10 @@
       font-size: 50px;
     }
     @media screen and (max-width: 816px) {
-      font-size: 45px;
+      font-size: 30px;
+    }
+    @media screen and (max-height: 768px) {
+      font-size: 24px;
     }
   }
   .swiper-slide a {
@@ -323,11 +331,23 @@
     justify-content: end;
     @media screen and (max-width: 682px) {
       width: 100%;
-      justify-content: start;
+      justify-content: center;
+      align-items: start;
+      height: auto;
     }
+    @include mobile{
+    
+      
+    }
+
   }
 }
-
+.swiper-wrapper{
+  @media screen and (max-width: 682px) {
+    align-items: center;
+    justify-content: center;
+  }
+}
 .menu-active {
   transition: all 1s ease-in-out;
   top: 0;
