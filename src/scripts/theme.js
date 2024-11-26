@@ -24,14 +24,15 @@ export const themeSwitcher = () => {
     setTheme(currentTheme);
 
     themeSwitcherBtn.addEventListener('click', () => {
-        const newTheme = page.dataset.theme === 'light' ? 'dark' : 'light';
-        setTheme(newTheme);
-      
-       location.reload();
+        location.reload();
        const savedScrollPosition = localStorage.getItem('scrollPosition');
        if (savedScrollPosition !== null) {
            window.scrollTo(0, parseInt(savedScrollPosition, 10));
        }
+        const newTheme = page.dataset.theme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+      
+       
     });
 
     function setTheme(theme) {
