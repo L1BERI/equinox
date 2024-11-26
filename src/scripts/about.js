@@ -44,19 +44,18 @@ siteTl.fromTo(
 siteTl.fromTo(
   '.about__title',
   {
-    '-webkit-text-stroke': '2px var(--white-color-10)',
-    immediateRender: false
+  
+    opacity: 1,
   },
   {
     color: 'transparent',
-    '-webkit-text-stroke': '2px var(--white-color-10)',
     opacity: 0.2,
     duration: baseDuration * durationFactor * 1.5,
-    ease:'none' 
-   
+    ease: 'power2.inOut', // Более плавный переход
   },
-),
-  '-=2.3';
+  '-=0.5'
+);
+  
 
 siteTl.to('.about__circles', {
   opacity: 1,

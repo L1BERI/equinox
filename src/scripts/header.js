@@ -32,7 +32,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 let tl = gsap.timeline();
 
-tl.fromTo(
+tl.fromTo(['.cursor-circle','.cursor-dot'],{
+opacity:0,
+visibility:'hidden'
+},{
+opacity:1,
+visibility:'visible'
+})
+.fromTo(
   '.header__title',
   {
     y: 15,

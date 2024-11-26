@@ -26,6 +26,8 @@ export const themeSwitcher = () => {
     themeSwitcherBtn.addEventListener('click', () => {
         const newTheme = page.dataset.theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme);
+      
+       location.reload();
     });
 
     function setTheme(theme) {
