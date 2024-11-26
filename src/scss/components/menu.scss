@@ -7,16 +7,28 @@
   color: var(--white-color-10);
   background-color: var(--black-color-10);
   top: -120%;
+  
   opacity: 0;
+  
   transition: all 1s ease-in-out;
   &__container {
     display: flex;
+    @media screen and (max-width: 682px) {
+      flex-direction: column-reverse;
+    }
   }
   &__left {
     display: flex;
     flex-direction: column;
     height: 100vh;
     flex: 0 1 35%;
+    @media screen and (max-width: 1350px) {
+      flex: 0 0 45%;
+    }
+    @media screen and (max-width: 682px) {
+      height: 40vh;
+      flex-direction: column;
+    }
   }
   &__left-form {
     height: 70%;
@@ -25,6 +37,16 @@
     display: flex;
     padding-bottom: 50px;
     padding-left: 50px;
+    @media screen and (max-width: 1200px) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    @media screen and (max-width: 682px) {
+      height: 100%;
+    }
+    @include mobile{
+      padding-bottom: 20px;
+    }
   }
   &__form {
     margin-top: auto;
@@ -38,11 +60,29 @@
     font-size: 30px;
     color: var(--white-color-10);
     margin-bottom: 50px;
+    @media screen and (max-width: 1560px) {
+      font-size: 24px;
+    }
+    @include tablet {
+      font-size: 20px;
+    }
+    @media screen and (max-width: 682px) {
+     margin-bottom: 20px;
+     font-size: 16px;
+    }
   }
   .form__inputs-wrapper {
     display: flex;
     align-items: center;
     gap: 50px;
+    @include tablet {
+      flex-direction: column;
+      gap: 10px;
+    }
+    @media screen and (max-width: 682px) {
+      flex-direction: row;
+      gap:50px;
+    }
   }
   .form__send-btn {
     width: 50px;
@@ -58,7 +98,7 @@
     position: relative; /* для позиционирования svg */
     overflow: hidden; /* чтобы текст не выходил за пределы */
     cursor: pointer;
-
+    flex-shrink: 0;
     span {
       position: absolute; /* Позиционируем текст внутри кнопки */
       left: 50%; /* Центрируем текст */
@@ -70,7 +110,6 @@
       font-size: 20px;
       color: var(--white-color-10);
     }
-   
 
     .send-icon {
       transition: transform 0.3s ease; /* Плавный поворот иконки */
@@ -93,6 +132,12 @@
       &::placeholder {
         color: rgba(255, 255, 255, 0.5);
       }
+    }
+    @media screen and (max-width: 1560px) {
+      max-width: 100%;
+    }
+    @include mobile{
+      font-size: 16px;
     }
   }
   &__left-logo {
@@ -128,6 +173,9 @@
     color: var(--white-color-10);
     position: relative;
     z-index: 1;
+    @include mobile{
+      font-size: 16px;
+    }
   }
 
   .menu__label-name,
@@ -142,6 +190,9 @@
     bottom: 5px;
     transition: all 0.3s ease-in-out;
     z-index: 0;
+    @include mobile{
+      font-size: 16px;
+    }
   }
 
   .menu__input-name:focus ~ .menu__label-name,
@@ -159,7 +210,7 @@
     gap: 10px;
     margin-top: 10px;
   }
-  .menu__method{
+  .menu__method {
     border: 1px solid var(--white-color-10);
     border-radius: 50%;
     width: 40px;
@@ -188,7 +239,6 @@
     padding-bottom: 50px;
     padding-left: 50px;
     position: relative;
-   
   }
   input[type='radio']:checked + .contact-method-label {
     background-color: var(--blue-color-10);
@@ -196,72 +246,107 @@
     transition: background-color 0.3s ease-in-out;
   }
 
-  &__right{
+  &__right {
     margin-left: auto;
     padding-right: 154px;
     height: 100vh;
+    @media screen and (max-width: 1200px) {
+      padding: 50px;
+    }
+    @media screen and (max-width: 682px) {
+      height: 60vh;
+      width: 100%;
+      padding: 20px 10px;
+    }
   }
-  &__right-wrapper{
+  &__right-wrapper {
     height: 100%;
+    @media screen and (max-width: 682px) {
+      height: auto;
+    }
   }
   &__right-list {
     display: flex;
     flex-direction: column;
     text-align: right;
+    @media screen and (max-width: 682px) {
+      gap: 15px;
+   
+      text-align: center;
+    }
   }
- &__right-list-link {
+  &__right-list-link {
     font-family: var(--font-family);
     font-weight: 700;
     font-size: 100px;
     color: transparent;
     -webkit-text-stroke: 1px var(--white-color-10);
-    opacity: .2;
-   
+    opacity: 0.2;
+
+    @media screen and (max-width: 1560px) {
+      font-size: 70px;
+    }
+    @media screen and (max-width: 1200px) {
+      font-size: 50px;
+    }
+    @media screen and (max-width: 816px) {
+      font-size: 45px;
+    }
   }
-  .swiper-slide a{
-  transition: color .3s ;
+  .swiper-slide a {
+    transition: color 0.3s;
   }
 
-  .swiper-slide-active{
-   
+  .swiper-slide-active {
   }
-  .swiper-slide-active>a{
+  .swiper-slide-active > a {
     color: var(--white-color-10);
     display: flex;
     align-items: center;
     gap: 40px;
     font-size: 140px;
     opacity: 1;
-  
+    @media screen and (max-width: 1560px) {
+      font-size: 100px;
+    }
+    @media screen and (max-width: 1200px) {
+      font-size: 80px;
+    }
+    @media screen and (max-width: 816px) {
+      font-size: 60px;
+    }
   }
-  .swiper-slide{
+  .swiper-slide {
     display: flex;
     align-items: center;
     gap: 40px;
     justify-content: end;
+    @media screen and (max-width: 682px) {
+      width: 100%;
+      justify-content: start;
+    }
   }
-
 }
-.menu-active{
-    transition: all 1s ease-in-out;
-    top: 0;
-    opacity: 1;
+
+.menu-active {
+  transition: all 1s ease-in-out;
+  top: 0;
+  opacity: 1;
 }
 
 fieldset {
   border: none;
   padding: 0;
 }
-[data-theme='light']{
+[data-theme='light'] {
   .menu__label-name,
-.menu__placeholder-connect {
-  color: var(--white-color-10)
-}
-
-input[type='radio']:checked + .menu__method {
-  svg path {
-    fill: var(--black-color-10);
+  .menu__placeholder-connect {
+    color: var(--white-color-10);
   }
 
-}
+  input[type='radio']:checked + .menu__method {
+    svg path {
+      fill: var(--black-color-10);
+    }
+  }
 }

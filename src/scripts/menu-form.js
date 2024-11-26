@@ -72,21 +72,49 @@ formSendTl.to(formSendBtn, {
   });
 });
 
-// Инициализация Swiper
-const swiper = new Swiper('.swiper', {
-  modules: [Mousewheel],
-  direction: 'vertical',
-  slidesPerView: 5,
-  loop: true,
-  centeredSlides: true,
-  initialSlide: 2,
-  speed: 1000,
-  mousewheel: {
-    forceToAxis: true, // Прокрутка только по вертикали
-    sensitivity: 1, // Чувствительность прокрутки
-  }, // Изначально активный слайд "ГЛАВНАЯ"
-});
 
+       
+
+
+        let swiper;
+
+        // Функция инициализации/уничтожения Swiper
+        function toggleSwiper() {
+            if (window.matchMedia('(max-width: 682px)').matches) {
+                // Если ширина меньше или равна 682px, уничтожаем Swiper
+                if (swiper) {
+                    swiper.destroy(true, true);
+                    swiper = null; // Удаляем экземпляр
+                    gsap.set('.swiper-wraper',{
+                      clearProps:'all'
+                    })
+                }
+            } else {
+                // Если ширина больше 682px, инициализируем Swiper
+                if (!swiper) {
+                   swiper = new Swiper('.swiper', {
+                    modules: [Mousewheel],
+                    direction: 'vertical',
+                    slidesPerView: 3,
+                    loop: true,
+                    centeredSlides: true,
+                    initialSlide: 2,
+                    speed: 1000,
+                    mousewheel: {
+                      forceToAxis: true, // Прокрутка только по вертикали
+                      sensitivity: 1, // Чувствительность прокрутки
+                    }, // Изначально активный слайд "ГЛАВНАЯ"
+                   
+                  });
+                }
+            }
+        }
+        
+        // Проверяем ширину при загрузке
+        toggleSwiper();
+        
+        // Слушаем изменения размера экрана
+        window.addEventListener('resize', toggleSwiper);
 
 document.querySelectorAll('.menu__right-list-link').forEach(anchor => {
   anchor.addEventListener('click', function(e) {

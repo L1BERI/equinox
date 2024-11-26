@@ -99,12 +99,13 @@ burgerBtn.addEventListener('click', (e) => {
   menuWrapper.classList.toggle('menu-active');
   burgerBtn.classList.toggle('burger-active');
     let menuTl = gsap.timeline();
+    let yValue = window.innerWidth <= 682 ? 0 : -200;
   if (menuWrapper.classList.contains('menu-active')) {
     menuTl.fromTo('.menu__right-list', {
         y:-500,
         opacity:0,
     },{
-        y:-200,
+        y:yValue,
         opacity:1,
         delay:1,
         duration:2,
