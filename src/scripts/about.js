@@ -718,8 +718,8 @@ siteTl.fromTo(
   {
     opacity:1,
     ease:'none',
-    duration: baseDuration * 4,
-  },'<1.2'
+    duration: baseDuration * 3,
+  },'<1'
 );
 
 
