@@ -4,7 +4,9 @@ const quizData = [
   {
     question: "Вид сайта?",
     answers: ["Лендинг", "Многостраничный"],
-    nextQuestion: (answer) => answer === "Лендинг" ? 1 : 2
+    nextQuestion: (answer) => answer === "Лендинг" ? 1 : 2,
+   
+
   },
   {
     question: "Количество блоков?",
@@ -19,12 +21,14 @@ const quizData = [
   {
     question: "Дизайн",
     answers: ["Готовый дизайн", "Дизайн с нуля", "Чистичный дизайн"],
-    nextQuestion: 4
+    nextQuestion: 4,
+    hint:'123'
   },
   {
     question: "Вид дизайна",
     answers: ["Шаблонный", "Уникальный", "Не знаю/не уверен(а)"],
-    nextQuestion: 5
+    nextQuestion: 5,
+    
   },
   {
     question: "Кто будет предоставлять контент?",
@@ -40,6 +44,7 @@ const quizData = [
     question: "Нужна ли интеграция CMS Wordpress?",
     answers: ["Да", "Нет"],
     nextQuestion: 8
+
   },
   {
     question: "SEO оптимизация",
@@ -82,7 +87,9 @@ const quizLoading = document.querySelector('.calc__quiz-loading');
 const loadingSpinner = document.querySelector('.calc__quiz-loading-spinner');
 const spinnerCircle = document.querySelector('.spinner-circle');
 const quizResult = document.querySelector('.calc__quiz-result');
-
+const annotationWrapper = document.querySelector('.quiz-question__annotation');
+const annotationIcon = document.querySelector('.annotation__icon');
+  
 function loadQuestion(index) {
   const currentQuestion = quizData[index];
   questionNumberElement.textContent = `${index + 1} / ${quizData.length}`;
@@ -113,6 +120,58 @@ function loadQuestion(index) {
   } else {
     backButton.style.display = 'none';
   }
+  const annotationTextElement = document.querySelector('.annotation__text');
+  
+  if (currentQuestion.hint) {
+    annotationTextElement.innerHTML = currentQuestion.hint;
+    annotationWrapper.style.display = 'flex'; // Показываем подсказку
+  } else {
+    annotationTextElement.innerHTML = '';
+    annotationWrapper.style.display = 'none'; // Скрываем, если подсказки нет
+  }
+}
+
+
+const annotationTextWrapper = document.querySelector('.annotation__text-wrapper');
+const quizWrapper = document.querySelector('.calc__quiz-inner');
+
+// Флаг для контроля отображения аннотации
+
+gsap.set(annotationTextWrapper,{
+  transformOrigin:'top left'
+})
+// Показ/скрытие аннотации по клику
+annotationIcon.addEventListener('click', (event) => {
+ // Останавливаем всплытие события
+  
+  annotationIcon.classList.add('annotation-active')
+  
+    gsap.to(annotationTextWrapper,{ opacity: 1, scale: 1, duration: 0.3 });
+   
+   if(annotationIcon.classList.contains('annotation-active')) {
+
+    hideAnnotation();
+  }
+
+ 
+});
+
+// Скрытие при клике вне квиза
+document.addEventListener('click', (event) => {
+  if (!event.target.closest('.quiz-question__annotation')) {
+    hideAnnotation();
+  }
+});
+
+// Скрытие аннотации
+function hideAnnotation() {
+  
+    
+    gsap.to(annotationTextWrapper, { opacity: 0, scale: 0.7, duration: 0.3, onComplete: () => {
+      
+    } });
+    annotationIcon.classList.remove('annotation-active')
+  
 }
 
 let customAnswer = ""; // Переменная для сохранения текста из текстового поля
