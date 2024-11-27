@@ -15,29 +15,15 @@ formSendBtn.addEventListener('mouseover', () => {
   gsap.killTweensOf(sendText);
   gsap.killTweensOf(sendIcon);
   const formSendTl = gsap.timeline()
-  
-gsap.set(formSendBtn,{
-  borderRadius:'50px',
-})
-  formSendTl.to(formSendBtn, {
-    width: 200,
-    duration: 0.5,
-   
-    ease: 'elastic.out(1, 0.5)', // Пружина
-  }, );
+
+
   formSendTl.to(sendIcon, {
-    x: 80,
+  
     rotation: 45,
     duration: 0.3,
     
   }, );
 
-  formSendTl.to(sendText, {
-    opacity: 1,
-    duration: 0.5,
-   
-    ease: 'power2.out', // Плавное появление текста
-  },'<0.3');
 
 });
 
@@ -48,28 +34,14 @@ formSendBtn.addEventListener('mouseleave', () => {
   gsap.killTweensOf(sendIcon);
 const formSendTl = gsap.timeline()
 
-gsap.set(formSendBtn,{
-  borderRadius:50,
-})
 
-formSendTl.to(formSendBtn, {
-    
-    width: 50,
-    duration: 0.5,
-    ease: 'elastic.out(1, 0.5)', // Пружина
-  });
 
-  formSendTl.to(sendText, {
-    opacity: 0,
-    duration: 0.3,
-    ease: 'power2.out', // Плавное исчезновение текста
-  });
 
   formSendTl.to(sendIcon, {
     rotation: 0,
-    x: 0,
+  
     duration: 0.3,
-    ease: 'back.out(1.7)', // Легкий "прыжок" иконки назад
+    
   });
 });
 

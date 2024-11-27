@@ -155,14 +155,15 @@
     }
     position: relative;
     z-index: 1;
-    transition: color .3s ease-in-out;
+    transition: color .3s ease-in-out,
+    border .3s ease-in-out;
     overflow: hidden;
     span{
         background-color: var(--blue-color-10);
 
     }
     &:hover{
-      
+      border: 1px solid var(--blue-color-10);
         color: var(--white-color-10);
         svg line{
           stroke: var(--white-color-10);
@@ -184,6 +185,7 @@
     &:hover{
        
         color: var(--black-color-10);
+        border: 1px solid var(--blue-color-10);
         svg line{
           stroke: var(--black-color-10);
         }

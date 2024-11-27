@@ -27,7 +27,7 @@ ScrollTrigger.create({
   pin: true,
 });
 
-siteTl.to('.scroll-down-circle', { scale: 27.5, duration: baseDuration, immediateRender: false});
+siteTl.to('.scroll-down-circle', { scale: 27.5, duration: baseDuration,});
 
 siteTl.fromTo(
   '.about',
@@ -568,18 +568,18 @@ siteTl.fromTo(
 
 // Теперь анимация
 siteTl.to('.services__orbit', {
-  rotation: (i) => (i % 2 === 0 ? 180 : -180), // Чётные по часовой, нечётные против
+  rotation: (i) => (i % 2 === 0 ? 90 : -90), // Чётные по часовой, нечётные против
   delay:1,
-  duration: baseDuration * 10, // Продолжительность
+  duration: baseDuration * 5, // Продолжительность
   ease:'none' 
 },'-=0.1');
 
 siteTl.to(
   '.services__first-orbit > .services__orbit-inner > .services__orbit-text',
   {
-    rotation: -180,
+    rotation: -90,
     ease:'none',
-    duration: baseDuration * 10, 
+    duration: baseDuration * 5, 
     
   },
   '<' 
@@ -587,9 +587,9 @@ siteTl.to(
 siteTl.to(
   '.services__second-orbit > .services__orbit-inner > .services__orbit-text',
   {
-    rotation: 180,
+    rotation: 90,
     ease:'none',
-    duration: baseDuration * 10, 
+    duration: baseDuration * 5, 
     
   },
   '<' 
@@ -597,9 +597,9 @@ siteTl.to(
 siteTl.to(
   '.services__third-orbit > .services__orbit-inner > .services__orbit-text',
   {
-    rotation: -180,
+    rotation: -90,
     ease:'none',
-    duration: baseDuration * 10, 
+    duration: baseDuration * 5, 
     
   },
   '<' 
@@ -661,66 +661,58 @@ siteTl.fromTo(
     
     yPercent: -100,
     opacity: 0,
-    ease:'none',
+    delay:1,
     duration: baseDuration * 2,
   }
 );
 siteTl.fromTo(
   '.footer',
   {
-    yPercent: 100,
+    immediateRender: false,
     opacity: 0,
     visibility: 'hidden',
  
   },
   {
-    yPercent: 0,
+  
     opacity: 1,
     visibility: 'visible',
-    ease:'none',
     duration: baseDuration * 2,
-  },'<1.5'
-);
-siteTl.fromTo(
-  '.footer__left-white',
-  {
-    xPercent: 200,
-    opacity:0,
-
-  },
-  {
-    opacity:1,
-    xPercent: 0,
-    duration: baseDuration * 4,
-    ease:'none',
   },'<3'
 );
-siteTl.fromTo(
-  '.footer__right',
-  {
-  
-   opacity:0,
 
-  },
-  {
-    opacity:1,
-    ease:'none',
-    duration: baseDuration * 4,
-  },'<1.5'
-);
-siteTl.fromTo(
-  '.footer__left-inner',
-  {
-  
-   opacity:0,
 
-  },
-  {
-    opacity:1,
-    ease:'none',
-    duration: baseDuration * 3,
-  },'<1'
-);
+siteTl.fromTo('.footer__left-white',{
+  xPercent:200,
+  opacity:0
+},{
+  xPercent:0,
+  opacity:1,
+  duration: baseDuration * 3,
+}, '<1')
+siteTl.fromTo('.footer__left-inner',{
+
+  opacity:0
+},{
+ 
+  opacity:1,
+  duration: baseDuration * 2,
+}, '<2')
+siteTl.fromTo('.footer__right',{
+
+  opacity:0
+},{
+ 
+  opacity:1,
+  duration: baseDuration * 2,
+}, '<-1')
+
+
+siteTl.to('.wrapper',{
+  opacity:1,
+  duration:2
+})
+
 
 
 
