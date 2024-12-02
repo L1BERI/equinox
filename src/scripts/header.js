@@ -95,46 +95,54 @@ tl.fromTo(
   );
 
 const burgerBtn = document.querySelector('.burger-menu');
-
+let isAnimating = false;
+const menuWrapper = document.querySelector('.menu');
 burgerBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  const menuWrapper = document.querySelector('.menu');
+  if (isAnimating) return; 
+
+  isAnimating = true; 
   menuWrapper.classList.toggle('menu-active');
   burgerBtn.classList.toggle('burger-active');
   document.body.classList.toggle('body--fixed');
-  let menuTl = gsap.timeline();
+  let menuTl = gsap.timeline({
+    onComplete: () => (isAnimating = false), // Сбрасываем флаг после завершения анимации
+  });
   let burgerTl = gsap.timeline();
-  let yValue = window.innerWidth <= 768 ? 0 : -200;
+ 
   if (menuWrapper.classList.contains('menu-active')) {
-
-
     burgerTl.to('.first-line', {
       y: 6,
-      duration:0.5,
-      ease:'none',
+      duration: 0.5,
+      ease: 'none',
     });
-    burgerTl.to('.second-line', {
-      y: -6,
-      duration:0.5,
-      ease:'none',
-    },'<');
+    burgerTl.to(
+      '.second-line',
+      {
+        y: -6,
+        duration: 0.5,
+        ease: 'none',
+      },
+      '<',
+    );
     burgerTl.to('.first-line', {
-      rotation:45,
-      duration:0.5,
-      delay:0.5,
-      ease:'none',
+      rotation: 45,
+      duration: 0.5,
+      delay: 0.5,
+      ease: 'none',
     });
-    burgerTl.to('.second-line', {
-      rotation:-45,
-      duration:0.5,
-      ease:'none',
-    },'<');
-
-
-
-
+    burgerTl.to(
+      '.second-line',
+      {
+        rotation: -45,
+        duration: 0.5,
+        ease: 'none',
+      },
+      '<',
+    );
 
     menuTl
+    
       .fromTo(
         '.menu__right-list',
         {
@@ -142,10 +150,11 @@ burgerBtn.addEventListener('click', (e) => {
           opacity: 0,
         },
         {
-          y: yValue,
+          y: 0,
           opacity: 1,
           delay: 1,
           duration: 2,
+          clearProps: 'all'
         },
       )
       .fromTo(
@@ -172,36 +181,45 @@ burgerBtn.addEventListener('click', (e) => {
           duration: 1,
         },
       );
-    
   } else {
-
-
     burgerTl.to('.first-line', {
-      rotation:0,
-      duration:0.5,
-     ease:'none',
+      rotation: 0,
+      duration: 0.5,
+      ease: 'none',
     });
-    burgerTl.to('.second-line', {
-      rotation:0,
-      duration:0.5,
-      ease:'none',
-    },'<');
+    burgerTl.to(
+      '.second-line',
+      {
+        rotation: 0,
+        duration: 0.5,
+        ease: 'none',
+      },
+      '<',
+    );
     burgerTl.to('.first-line', {
-      delay:0.5,
+      delay: 0.5,
       y: 0,
-      duration:0.5,
-      ease:'none',
+      duration: 0.5,
+      ease: 'none',
     });
-    burgerTl.to('.second-line', {
-      y: 0,
-      duration:0.5,
-      ease:'none',
-    },'<');
-    burgerTl.to('.burger-menu', {
-      y: 0,
-      duration:0.5,
-      ease:'none',
-    },'<');
-    
+    burgerTl.to(
+      '.second-line',
+      {
+        y: 0,
+        duration: 0.5,
+        ease: 'none',
+      },
+      '<',
+    );
+    burgerTl.to(
+      '.burger-menu',
+      {
+        y: 0,
+        duration: 0.5,
+        ease: 'none',
+      },
+      '<',
+    );
+  
   }
 });
