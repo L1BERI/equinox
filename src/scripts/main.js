@@ -7,7 +7,10 @@ import './menu-form';
 import './about';
 import './quiz';
 import { themeSwitcher } from './theme';
+import './footer';
+import { goupBtn } from './footer';
 
 
 gsapCursor();
 themeSwitcher();
+goupBtn();

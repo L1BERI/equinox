@@ -32,26 +32,30 @@ document.addEventListener('DOMContentLoaded', function () {
 
 let tl = gsap.timeline();
 
-tl.fromTo(['.cursor-circle','.cursor-dot'],{
-opacity:0,
-visibility:'hidden'
-},{
-opacity:1,
-visibility:'visible'
-})
-.fromTo(
-  '.header__title',
+tl.fromTo(
+  ['.cursor-circle', '.cursor-dot'],
   {
-    y: 15,
     opacity: 0,
+    visibility: 'hidden',
   },
   {
-    y: 0,
     opacity: 1,
-    duration: 1,
-    delay: 0.5,
+    visibility: 'visible',
   },
 )
+  .fromTo(
+    '.header__title',
+    {
+      y: 15,
+      opacity: 0,
+    },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      delay: 0.5,
+    },
+  )
   .fromTo(
     '.header__subtitle',
     {
@@ -86,10 +90,9 @@ visibility:'visible'
       y: 0,
       opacity: 1,
       duration: 1,
-      clearProps: 'true,'
+      clearProps: 'true,',
     },
   );
-  
 
 const burgerBtn = document.querySelector('.burger-menu');
 
@@ -98,36 +101,99 @@ burgerBtn.addEventListener('click', (e) => {
   const menuWrapper = document.querySelector('.menu');
   menuWrapper.classList.toggle('menu-active');
   burgerBtn.classList.toggle('burger-active');
-  document.body.classList.toggle('body--fixed')
-    let menuTl = gsap.timeline();
-    let yValue = window.innerWidth <= 682 ? 0 : -200;
+  document.body.classList.toggle('body--fixed');
+  let menuTl = gsap.timeline();
+  let burgerTl = gsap.timeline();
+  let yValue = window.innerWidth <= 682 ? 0 : -200;
   if (menuWrapper.classList.contains('menu-active')) {
-    menuTl.fromTo('.menu__right-list', {
-        y:-500,
-        opacity:0,
-    },{
-        y:yValue,
-        opacity:1,
-        delay:1,
-        duration:2,
-    }).fromTo(
-      '.menu__form',
-      {
-        x: -100,
-        opacity:0,
-      },
-      {
-        x: 0,
-        opacity:1,
-        duration: 1,
-      },
-    ).fromTo('.menu__left-link',{
-        x: -20,
-        opacity:0,
-    },{
-        x: 0,
-        opacity:1,
-        duration: 1,
+
+
+    burgerTl.to('.first-line', {
+      y: 6,
+      duration:0.5,
+      ease:'none',
     });
+    burgerTl.to('.second-line', {
+      y: -6,
+      duration:0.5,
+      ease:'none',
+    },'<');
+    burgerTl.to('.first-line', {
+      rotation:45,
+      duration:0.5,
+      delay:0.5,
+      ease:'none',
+    });
+    burgerTl.to('.second-line', {
+      rotation:-45,
+      duration:0.5,
+      ease:'none',
+    },'<');
+
+
+
+
+
+    menuTl
+      .fromTo(
+        '.menu__right-list',
+        {
+          y: -500,
+          opacity: 0,
+        },
+        {
+          y: yValue,
+          opacity: 1,
+          delay: 1,
+          duration: 2,
+        },
+      )
+      .fromTo(
+        '.menu__form',
+        {
+          x: -100,
+          opacity: 0,
+        },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+        },
+      )
+      .fromTo(
+        '.menu__left-link',
+        {
+          x: -20,
+          opacity: 0,
+        },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1,
+        },
+      );
+  } else {
+    burgerTl.to('.first-line', {
+      rotation:0,
+      duration:0.5,
+     ease:'none',
+    });
+    burgerTl.to('.second-line', {
+      rotation:0,
+      duration:0.5,
+      ease:'none',
+    },'<');
+    burgerTl.to('.first-line', {
+      delay:0.5,
+      y: 0,
+      duration:0.5,
+      ease:'none',
+    });
+    burgerTl.to('.second-line', {
+      y: 0,
+      duration:0.5,
+      ease:'none',
+    },'<');
+    
   }
 });

@@ -2,7 +2,7 @@ html {
   box-sizing: border-box;
   font-weight: 400;
   font-size: 16px;
-  scroll-behavior: smooth !important;
+  scroll-behavior: auto !important;
 }
 
 *,
@@ -166,15 +166,15 @@ label {
 
 }
 
-.burger-active {
-  gap: 0;
-  span:first-child {
-    transform: rotate(45deg) translate(1px, 0);
-  }
-  span:last-child {
-    transform: rotate(-45deg) translate(0, 0);
-  }
-}
+// .burger-active {
+//   gap: 0;
+//   span:first-child {
+//     transform: rotate(45deg) translate(1px, 0);
+//   }
+//   span:last-child {
+//     transform: rotate(-45deg) translate(0, 0);
+//   }
+// }
 
 
 .btn--hover{
@@ -203,3 +203,25 @@ label {
   }
 }
 
+/* Стили для полосы прокрутки */
+::-webkit-scrollbar {
+  width: 10px; /* Ширина полосы */
+  height: 8px; /* Высота полосы для горизонтальной прокрутки */
+}
+
+/* Стили трека (фона полосы прокрутки) */
+::-webkit-scrollbar-track {
+  background: var(--black-color-10); /* Цвет трека */
+  border-radius: 4px;
+}
+
+/* Стили бегунка (ползунка) */
+::-webkit-scrollbar-thumb {
+  background: var(--blue-color-10); /* Цвет бегунка */
+  border-radius: 4px; /* Скругление */
+}
+
+button:disabled{
+  pointer-events: none; /* Отключает взаимодействие */
+  
+}

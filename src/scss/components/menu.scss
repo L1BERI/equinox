@@ -89,9 +89,10 @@
     }
   }
   .form__send-btn {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    max-width: 200px;
+    width: 100%;
+    border-radius: 50px;
+    padding: 13px;
     border: 1px solid var(--white-color-10);
     display: flex;
     align-items: center;
@@ -99,25 +100,13 @@
     transform: translateY(15px);
     transition: all 0.5s ease-in-out;
     gap: 20px;
-    position: relative; /* для позиционирования svg */
-    overflow: hidden; /* чтобы текст не выходил за пределы */
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--white-color-10);
+    overflow: hidden; 
     cursor: pointer;
-    flex-shrink: 0;
-    span {
-      position: absolute; /* Позиционируем текст внутри кнопки */
-      left: 50%; /* Центрируем текст */
-      transform: translateX(-50%); /* Центрируем текст */
-      white-space: nowrap; /* Не переносить текст на новую строку */
-      transition: opacity 0.3s ease; /* Плавное появление текста */
-      font-family: var(--font-family);
-      font-weight: 400;
-      font-size: 20px;
-      color: var(--white-color-10);
-    }
-
-    .send-icon {
-      transition: transform 0.3s ease; /* Плавный поворот иконки */
-    }
+    
   }
   .form__inputs {
     display: flex;

@@ -209,9 +209,12 @@ header {
     .black-circle {
       position: relative;
       z-index: 1;
+      border-radius: 50%;
+      box-shadow: 0 0 50px 0 var(--blue-color-10);
       circle {
         fill: var(--black-color-10);
       }
+      
     }
     span {
       font-family: var(--font-family);
