@@ -348,6 +348,9 @@
     @media screen and (max-width: 1200px) {
       padding: 50px;
     }
+    @media screen and (max-width: 1000px) {
+      padding: 20px;
+    }
     @media screen and (max-width: 768px) {
       height: 100%;
       max-width: none;
@@ -379,7 +382,7 @@
     flex-direction: column;
     text-align: right;
     @media screen and (max-width: 768px) {
-      gap: 15px;
+      gap: 8px;
     }
     @include mobile {
       gap: 5px;
@@ -436,9 +439,9 @@
   }
   .swiper-slide {
     display: flex;
-    align-items: center;
-    gap: 40px;
-    justify-content: end;
+  justify-content: end;
+  align-items: center;
+  height: auto; 
     @media screen and (max-width: 768px) {
       width: 100%;
       margin-left: 170px;

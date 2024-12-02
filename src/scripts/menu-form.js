@@ -44,37 +44,55 @@ const formSendTl = gsap.timeline()
     
   });
 });
-function setRealHeight() {
-  const vh = window.innerHeight * 0.01; // Рассчитываем 1vh
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-}
 
-// Устанавливаем высоту при загрузке и обновляем при изменении размера окна
-setRealHeight();
-window.addEventListener('resize', setRealHeight);
 
        
 
-const swiper = new Swiper('.swiper', {
-  modules: [Mousewheel],
-  direction: 'vertical',
-  slidesPerView: 'auto',
-  loop: true,
-  centeredSlides: true,
-  initialSlide: 2,
-  spaceBetween:10,
-  speed: 1000,
-  mousewheel: {
-    forceToAxis: true, // Прокрутка только по вертикали
-    sensitivity: 1, // Чувствительность прокрутки
-  }, // Изначально активный слайд "ГЛАВНАЯ"
-  breakpoints:{
-    816:{
-      slidesPerView:5,
+let swiper = null; // Переменная для хранения экземпляра Swiper
+
+function initializeSwiper() {
+  const screenWidth = window.innerWidth; // Получаем ширину экрана
+
+  if (screenWidth > 768) {
+    // Если ширина больше 768 и Swiper ещё не инициализирован
+    if (!swiper) {
+      swiper = new Swiper('.swiper', {
+        modules: [Mousewheel],
+        direction: 'vertical',
+        slidesPerView: 'auto',
+        loop: true,
+        centeredSlides: true,
+        initialSlide: 2,
+        spaceBetween: 10,
+        speed: 1000,
+        mousewheel: {
+          forceToAxis: true, // Прокрутка только по вертикали
+          sensitivity: 1,   // Чувствительность прокрутки
+        },
+        breakpoints: {
+          816: {
+            slidesPerView: 5,
+          },
+        },
+      });
     }
+  } else {
+    // Если ширина меньше или равна 768 и Swiper активен, уничтожаем его
+    if (swiper) {
+      swiper.destroy(true, true); // Полностью уничтожает Swiper
+      swiper = null; // Сбрасываем переменную
+     
+    }
+    const menuLinks = document.querySelectorAll('.swiper-slide')
+    menuLinks[2].classList.add('swiper-slide-active')
   }
- 
-});
+}
+
+// Слушаем событие изменения размера окна
+window.addEventListener('resize', initializeSwiper);
+
+// Инициализация при загрузке страницы
+initializeSwiper();
 
 document.querySelectorAll('.menu__right-list-link').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
