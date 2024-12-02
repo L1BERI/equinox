@@ -104,7 +104,7 @@ burgerBtn.addEventListener('click', (e) => {
   document.body.classList.toggle('body--fixed');
   let menuTl = gsap.timeline();
   let burgerTl = gsap.timeline();
-  let yValue = window.innerWidth <= 682 ? 0 : -200;
+  let yValue = window.innerWidth <= 768 ? 0 : -200;
   if (menuWrapper.classList.contains('menu-active')) {
 
 
@@ -172,7 +172,10 @@ burgerBtn.addEventListener('click', (e) => {
           duration: 1,
         },
       );
+    
   } else {
+
+
     burgerTl.to('.first-line', {
       rotation:0,
       duration:0.5,
@@ -190,6 +193,11 @@ burgerBtn.addEventListener('click', (e) => {
       ease:'none',
     });
     burgerTl.to('.second-line', {
+      y: 0,
+      duration:0.5,
+      ease:'none',
+    },'<');
+    burgerTl.to('.burger-menu', {
       y: 0,
       duration:0.5,
       ease:'none',

@@ -48,46 +48,26 @@ const formSendTl = gsap.timeline()
 
        
 
+const swiper = new Swiper('.swiper', {
+  modules: [Mousewheel],
+  direction: 'vertical',
+  slidesPerView: 'auto',
+  loop: true,
+  centeredSlides: true,
+  initialSlide: 2,
 
-        let swiper;
-
-        // Функция инициализации/уничтожения Swiper
-        function toggleSwiper() {
-            if (window.matchMedia('(max-width: 682px)').matches) {
-                // Если ширина меньше или равна 682px, уничтожаем Swiper
-                if (swiper) {
-                    swiper.destroy(true, true);
-                    swiper = null; // Удаляем экземпляр
-                    gsap.set('.swiper-wraper',{
-                      clearProps:'all'
-                    })
-                }
-            } else {
-                // Если ширина больше 682px, инициализируем Swiper
-                if (!swiper) {
-                   swiper = new Swiper('.swiper', {
-                    modules: [Mousewheel],
-                    direction: 'vertical',
-                    slidesPerView: 5,
-                    loop: true,
-                    centeredSlides: true,
-                    initialSlide: 2,
-                    speed: 1000,
-                    mousewheel: {
-                      forceToAxis: true, // Прокрутка только по вертикали
-                      sensitivity: 1, // Чувствительность прокрутки
-                    }, // Изначально активный слайд "ГЛАВНАЯ"
-                   
-                  });
-                }
-            }
-        }
-        
-        // Проверяем ширину при загрузке
-        toggleSwiper();
-        
-        // Слушаем изменения размера экрана
-        window.addEventListener('resize', toggleSwiper);
+  speed: 1000,
+  mousewheel: {
+    forceToAxis: true, // Прокрутка только по вертикали
+    sensitivity: 1, // Чувствительность прокрутки
+  }, // Изначально активный слайд "ГЛАВНАЯ"
+  breakpoints:{
+    816:{
+      slidesPerView:5,
+    }
+  }
+ 
+});
 
 document.querySelectorAll('.menu__right-list-link').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
