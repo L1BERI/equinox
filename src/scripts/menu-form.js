@@ -9,47 +9,13 @@ const formSendBtn = document.querySelector('.form__send-btn');
 const sendText = formSendBtn.querySelector('.send-text');
 const sendIcon = formSendBtn.querySelector('.send-icon');
 
-formSendBtn.addEventListener('mouseover', () => {
-  // Убираем все предыдущие анимации
-  gsap.killTweensOf(formSendBtn);
-  gsap.killTweensOf(sendText);
-  gsap.killTweensOf(sendIcon);
-  const formSendTl = gsap.timeline()
 
-
-  formSendTl.to(sendIcon, {
-  
-    rotation: 45,
-    duration: 0.3,
-    
-  }, );
-
-
-});
-
-formSendBtn.addEventListener('mouseleave', () => {
-  // Убираем все предыдущие анимации
-  gsap.killTweensOf(formSendBtn);
-  gsap.killTweensOf(sendText);
-  gsap.killTweensOf(sendIcon);
-const formSendTl = gsap.timeline()
-
-
-
-
-  formSendTl.to(sendIcon, {
-    rotation: 0,
-  
-    duration: 0.3,
-    
-  });
-});
 
 
        
 
 let swiper = null; // Переменная для хранения экземпляра Swiper
-
+const menuLinks = document.querySelectorAll('.swiper-slide')
 function initializeSwiper() {
   const screenWidth = window.innerWidth; // Получаем ширину экрана
 
@@ -83,10 +49,19 @@ function initializeSwiper() {
       swiper = null; // Сбрасываем переменную
      
     }
-    const menuLinks = document.querySelectorAll('.swiper-slide')
-    menuLinks[2].classList.add('swiper-slide-active')
+    
+    menuLinks[0].classList.add('swiper-slide-active')
+    menuLinks.forEach((slide, index) => {
+      const link = slide.querySelector('a'); // Ищем элемент <a> внутри
+      if (link) {
+        // Массив текстов для ссылок
+        const texts = ['ГЛАВНАЯ', 'О НАС', 'ЭТАПЫ', 'УСЛУГИ', 'РАСЧЕТ', 'КОНТАКТЫ'];
+        link.innerHTML = texts[index] || ''; // Присваиваем текст, если он существует
+      }
+    });
   }
 }
+
 
 // Слушаем событие изменения размера окна
 window.addEventListener('resize', initializeSwiper);
@@ -101,8 +76,7 @@ document.querySelectorAll('.menu__right-list-link').forEach(anchor => {
     const targetId = this.getAttribute('href').substring(1);
     console.log(targetId);
     const targetSection = document.getElementById(targetId);
-console.log(targetSection);
-console.log(targetSection.offsetTop);
+
     if (targetSection) {
       gsap.to(window, {
         duration: 1,
@@ -112,3 +86,50 @@ console.log(targetSection.offsetTop);
     }
   });
 });
+
+
+menuLinks.forEach(el => {
+  el.addEventListener('click', (e)=>{
+
+    for (let i = 0; i < menuLinks.length; i++){
+      if(menuLinks[i].classList.contains('swiper-slide-active')){
+        menuLinks[i].classList.remove('swiper-slide-active')
+        el.classList.add('swiper-slide-active')
+      }
+    }
+  })
+})
+
+const formMobileBtn = document.querySelector('.menu__left-mobile-btn')
+let counter = 0
+formMobileBtn.addEventListener('click', () => {
+  const mobileForm = document.querySelector('.menu__left-mobile')
+  const mobileFormWapper = document.querySelector('.form__inputs-wrapper')
+ 
+  if(counter === 0){
+    counter++
+  } else {
+    counter--
+  }
+
+  if(counter === 0){
+    gsap.to(mobileForm, {
+      y:-250,
+     
+    })
+    gsap.to(mobileFormWapper, {
+    
+      opacity:1
+    })
+  } else {
+    gsap.to(mobileForm, {
+      y:0,
+    
+    })
+    gsap.to(mobileFormWapper, {
+    
+      opacity:0
+    })
+  }
+  
+})

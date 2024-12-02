@@ -130,8 +130,6 @@ label {
   transition: opacity 0.3s ease;
   @media screen and (max-width:768px) {
     display: none;
-  
-   
   }
 }
 
@@ -143,9 +141,7 @@ label {
   font-size: 30px;
   text-align: center;
   color: #fff;
-  @media screen and (max-width:768px) {
-    display: none;
-  }
+ 
 }
 .burger-menu {
   width: 60px;
