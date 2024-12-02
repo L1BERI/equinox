@@ -62,7 +62,7 @@ const swiper = new Swiper('.swiper', {
   loop: true,
   centeredSlides: true,
   initialSlide: 2,
-
+  spaceBetween:10,
   speed: 1000,
   mousewheel: {
     forceToAxis: true, // Прокрутка только по вертикали
