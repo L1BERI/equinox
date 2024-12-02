@@ -6,8 +6,8 @@
   z-index: 100;
   color: var(--white-color-10);
   background-color: var(--black-color-10);
-  top: -120%;
-  bottom: 0;
+ top: 0;
+  bottom: 120%;
   opacity: 0;
  
   transition: all 1s ease-in-out;
@@ -459,7 +459,7 @@
 }
 .menu-active {
   transition: all 1s ease-in-out;
-  top: 0;
+  bottom: 0;
   opacity: 1;
 }
 
