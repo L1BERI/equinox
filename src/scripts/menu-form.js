@@ -48,11 +48,9 @@ function setRealHeight() {
   const vh = window.innerHeight * 0.01; // Рассчитываем 1vh
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
-
-
 const menuList = document.querySelector('.menu__right-list');
 const items = Array.from(menuList.querySelectorAll('.menu__right-list-link'));
-let activeIndex = 2;
+let activeIndex = 0;
 
 // Функция для обновления активного элемента
 function updateActiveLink(newIndex) {
@@ -61,41 +59,83 @@ function updateActiveLink(newIndex) {
   items[activeIndex].classList.add('active');
 }
 
+// Проверяем, мобильное ли устройство
+const isMobile = window.innerWidth <= 768; // Можно настроить по своему усмотрению
+
 // Прокрутка через мышь или тачскрин
 let startY = null;
-menuList.addEventListener('touchstart', (e) => (startY = e.touches[0].clientY));
-menuList.addEventListener('touchmove', handleScroll);
-menuList.addEventListener('wheel', handleScroll);
+menuList.addEventListener('touchstart', (e) => {
+  startY = e.touches[0].clientY;
+});
 
-function handleScroll(e) {
-  const delta = e.type === 'touchmove' ? startY - e.touches[0].clientY : e.deltaY;
+menuList.addEventListener('touchmove', (e) => {
+  if (isMobile) {
+    e.preventDefault();  // Останавливаем стандартную прокрутку при свайпе на мобильных
+    handleSwipe(e);      // Обрабатываем только свайп
+  } else {
+    handleScroll(e);     // Для десктопа — обычный скролл
+  }
+});
 
+menuList.addEventListener('wheel', (e) => {
+  if (!isMobile) {
+    e.preventDefault();  // Останавливаем стандартную прокрутку через колесо мыши на десктопах
+    handleScroll(e);
+  }
+});
+
+// Обработчик свайпа (для мобильных устройств)
+function handleSwipe(e) {
+  const delta = startY - e.touches[0].clientY;
+  
   if (delta > 0) {
-    
+    // Свайп вниз (переключаем на следующий элемент)
     if (activeIndex < items.length - 1) {
       updateActiveLink(activeIndex + 1);
     } else {
-   
+      // Если дошли до конца списка, перебрасываем в начало
+      updateActiveLink(0);
+    }
+  } else if (delta < 0) {
+    // Свайп вверх (переключаем на предыдущий элемент)
+    if (activeIndex > 0) {
+      updateActiveLink(activeIndex - 1);
+    } else {
+      // Если дошли до начала списка, перебрасываем в конец
+      updateActiveLink(items.length - 1);
+    }
+  }
+  
+  startY = e.touches[0].clientY;  // Обновляем начальную точку свайпа
+}
+
+// Обработчик скролла (для десктопа)
+function handleScroll(e) {
+  const delta = e.type === 'wheel' ? e.deltaY : 0;
+
+  if (delta > 0) {
+    // Прокрутка вниз
+    if (activeIndex < items.length - 1) {
+      updateActiveLink(activeIndex + 1);
+    } else {
+      // Если дошли до конца списка, перебрасываем в начало
       menuList.scrollTop = 0;
       updateActiveLink(0);
     }
   } else if (delta < 0) {
-   
+    // Прокрутка вверх
     if (activeIndex > 0) {
       updateActiveLink(activeIndex - 1);
     } else {
-    
+      // Если дошли до начала списка, перебрасываем в конец
       menuList.scrollTop = menuList.scrollHeight;
       updateActiveLink(items.length - 1);
     }
   }
-
-  startY = e.type === 'touchmove' ? e.touches[0].clientY : null;
 }
 
 // Установка начального активного элемента
 updateActiveLink(activeIndex);
-
 
 
 document.querySelectorAll('.menu__right-list-link').forEach(anchor => {

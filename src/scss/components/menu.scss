@@ -496,15 +496,12 @@ fieldset {
 }
 
 // Для телефонов добавляем touch-friendly стиль:
-@media (max-width: 768px) {
-  .menu__right-list {
-    overflow-y: hidden;
-    touch-action: pan-y; // Для работы свайпов вверх-вниз
-  }
-}
+
 .menu__right-list {
   overflow: auto;
-  scrollbar-width: none;
-  scroll-behavior: smooth; /* Плавная прокрутка */
+ 
 }
 
+.menu__right-list::-webkit-scrollbar {
+  display: none;
+}
