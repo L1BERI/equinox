@@ -149,7 +149,7 @@ burgerBtn.addEventListener('click', (e) => {
         },
       )
       .fromTo(
-        '.menu__form',
+        window.innerWidth <= 568 ? '.menu__left-mobile' : '.menu__form',
         {
           x: -100,
           opacity: 0,
