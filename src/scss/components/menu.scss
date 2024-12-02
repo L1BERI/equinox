@@ -61,12 +61,14 @@
 
   &__left-mobile {
     display: none;
-    @include mobile {
+    @media screen and (max-height:578px){
       display: flex;
       align-items: center;
       justify-content: center;
     }
-  }
+     
+    }
+  
   &__left-mobile-title {
     font-family: var(--font-family);
     font-weight: 400;
@@ -96,9 +98,11 @@
     @include mobile {
       margin: 0 auto;
     }
-    @include mobile {
+    @media screen and (max-height:578px){
       display: none;
+     
     }
+     
   }
   .form__title {
     font-family: var(--font-family);
