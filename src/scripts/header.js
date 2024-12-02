@@ -143,20 +143,7 @@ burgerBtn.addEventListener('click', (e) => {
 
     menuTl
     
-      .fromTo(
-        '.menu__right-list',
-        {
-          y: -500,
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          delay: 1,
-          duration: 2,
-          clearProps: 'all'
-        },
-      )
+     
       .fromTo(
         window.innerWidth <= 568 ? '.menu__left-mobile' : '.menu__form',
         {
@@ -220,6 +207,6 @@ burgerBtn.addEventListener('click', (e) => {
       },
       '<',
     );
-  
+    
   }
 });

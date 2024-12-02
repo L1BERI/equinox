@@ -2,21 +2,20 @@
   position: fixed;
 
   width: 100vw;
-  
+
   z-index: 100;
   color: var(--white-color-10);
   background-color: var(--black-color-10);
- top: 0;
+  top: 0;
   bottom: 120%;
   opacity: 0;
- 
+
   transition: all 1s ease-in-out;
   &__container {
     display: flex;
     height: 100%;
     @media screen and (max-width: 768px) {
       flex-direction: column-reverse;
-     
     }
   }
   &__left {
@@ -33,7 +32,6 @@
       height: auto;
       flex-direction: row-reverse;
     }
-   
   }
   &__left-form {
     height: 70%;
@@ -48,10 +46,11 @@
       padding-right: 10px;
     }
     @media screen and (max-width: 768px) {
+      max-height: 40vh;
       height: 100%;
 
       width: 100%;
-      padding: 30px 40px 40px 40px;
+      padding: 20px 40px 20px 30px;
       border-bottom: none;
       border-right: none;
       border-top: 1px solid var(--white-color-10);
@@ -79,7 +78,7 @@
     width: 100%;
   }
 
-  &__left-mobile-btn{
+  &__left-mobile-btn {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -353,6 +352,8 @@
       max-width: none;
       width: 100vw;
       position: relative;
+      padding: 30px 0px 0px 130px;
+     
       &::before {
         content: '';
         height: 200vh;
@@ -378,13 +379,18 @@
     display: flex;
     flex-direction: column;
     text-align: right;
+    max-height: 100vh;
+  
+    gap: 50px;
     @media screen and (max-width: 768px) {
       gap: 15px;
+     text-align: left;
     }
     @include mobile {
       gap: 5px;
     }
   }
+
   &__right-list-link {
     font-family: var(--font-family);
     font-weight: 700;
@@ -408,48 +414,11 @@
       font-size: 40px;
     }
   }
-  .swiper-slide a {
-    transition: color 0.3s;
-  }
 
-  .swiper-slide-active {
-  }
-  .swiper-slide-active > a {
-    color: var(--white-color-10);
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    font-size: 140px;
-    opacity: 1;
-    @media screen and (max-width: 1750px) {
-      font-size: 110px;
-    }
-    @media screen and (max-width: 1560px) {
-      font-size: 100px;
-    }
-    @media screen and (max-width: 1200px) {
-      font-size: 80px;
-    }
-    @media screen and (max-width: 816px) {
-      font-size: 60px;
-    }
-  }
-  .swiper-slide {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    justify-content: end;
-    @media screen and (max-width: 768px) {
-      width: 100%;
-      margin-left: 170px;
-      justify-content: start;
-      align-items: start;
-      height: auto;
-    }
-    @include mobile {
-      margin-left: 0;
-    }
-  }
+
+ 
+  
+  
 }
 .swiper-wrapper {
   @media screen and (max-width: 768px) {
@@ -479,3 +448,63 @@ fieldset {
     }
   }
 }
+.menu__right-list-link {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 100px;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--white-color-10);
+  opacity: 0.2;
+  transition: opacity 0.3s, color 0.3s;
+
+  @media screen and (max-width: 1750px) {
+    font-size: 70px;
+  }
+
+  @media screen and (max-width: 1200px) {
+    font-size: 50px;
+  }
+
+  @media screen and (max-height: 768px) {
+    font-size: 50px;
+  }
+  @include mobile {
+    font-size: 40px;
+  }
+}
+
+// Активный элемент:
+.menu__right-list-link.active {
+  color: var(--white-color-10);
+ 
+ 
+  gap: 40px;
+  font-size: 140px;
+  opacity: 1;
+  @media screen and (max-width: 1750px) {
+    font-size: 110px;
+  }
+  @media screen and (max-width: 1560px) {
+    font-size: 100px;
+  }
+  @media screen and (max-width: 1200px) {
+    font-size: 80px;
+  }
+  @media screen and (max-width: 816px) {
+    font-size: 60px;
+  }
+}
+
+// Для телефонов добавляем touch-friendly стиль:
+@media (max-width: 768px) {
+  .menu__right-list {
+    overflow-y: hidden;
+    touch-action: pan-y; // Для работы свайпов вверх-вниз
+  }
+}
+.menu__right-list {
+  overflow: auto;
+  scrollbar-width: none;
+  scroll-behavior: smooth; /* Плавная прокрутка */
+}
+

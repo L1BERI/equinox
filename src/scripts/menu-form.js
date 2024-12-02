@@ -49,32 +49,54 @@ function setRealHeight() {
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
 
-// Устанавливаем высоту при загрузке и обновляем при изменении размера окна
-setRealHeight();
-window.addEventListener('resize', setRealHeight);
 
-       
+const menuList = document.querySelector('.menu__right-list');
+const items = Array.from(menuList.querySelectorAll('.menu__right-list-link'));
+let activeIndex = 2;
 
-const swiper = new Swiper('.swiper', {
-  modules: [Mousewheel],
-  direction: 'vertical',
-  slidesPerView: 'auto',
-  loop: true,
-  centeredSlides: true,
-  initialSlide: 2,
-  spaceBetween:10,
-  speed: 1000,
-  mousewheel: {
-    forceToAxis: true, // Прокрутка только по вертикали
-    sensitivity: 1, // Чувствительность прокрутки
-  }, // Изначально активный слайд "ГЛАВНАЯ"
-  breakpoints:{
-    816:{
-      slidesPerView:5,
+// Функция для обновления активного элемента
+function updateActiveLink(newIndex) {
+  items[activeIndex].classList.remove('active');
+  activeIndex = newIndex;
+  items[activeIndex].classList.add('active');
+}
+
+// Прокрутка через мышь или тачскрин
+let startY = null;
+menuList.addEventListener('touchstart', (e) => (startY = e.touches[0].clientY));
+menuList.addEventListener('touchmove', handleScroll);
+menuList.addEventListener('wheel', handleScroll);
+
+function handleScroll(e) {
+  const delta = e.type === 'touchmove' ? startY - e.touches[0].clientY : e.deltaY;
+
+  if (delta > 0) {
+    
+    if (activeIndex < items.length - 1) {
+      updateActiveLink(activeIndex + 1);
+    } else {
+   
+      menuList.scrollTop = 0;
+      updateActiveLink(0);
+    }
+  } else if (delta < 0) {
+   
+    if (activeIndex > 0) {
+      updateActiveLink(activeIndex - 1);
+    } else {
+    
+      menuList.scrollTop = menuList.scrollHeight;
+      updateActiveLink(items.length - 1);
     }
   }
- 
-});
+
+  startY = e.type === 'touchmove' ? e.touches[0].clientY : null;
+}
+
+// Установка начального активного элемента
+updateActiveLink(activeIndex);
+
+
 
 document.querySelectorAll('.menu__right-list-link').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
