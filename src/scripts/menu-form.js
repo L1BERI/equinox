@@ -44,7 +44,14 @@ const formSendTl = gsap.timeline()
     
   });
 });
+function setRealHeight() {
+  const vh = window.innerHeight * 0.01; // Рассчитываем 1vh
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
 
+// Устанавливаем высоту при загрузке и обновляем при изменении размера окна
+setRealHeight();
+window.addEventListener('resize', setRealHeight);
 
        
 
