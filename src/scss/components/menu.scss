@@ -1,14 +1,13 @@
 .menu {
   position: fixed;
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
+
   width: 100vw;
-  height: calc(var(--vh, 1vh) * 100);
+  
   z-index: 100;
   color: var(--white-color-10);
   background-color: var(--black-color-10);
   top: -120%;
-
+  bottom: 0;
   opacity: 0;
  
   transition: all 1s ease-in-out;
@@ -16,7 +15,7 @@
     display: flex;
     @media screen and (max-width: 768px) {
       flex-direction: column-reverse;
-      height: 100vh;
+     
     }
   }
   &__left {
