@@ -261,7 +261,7 @@ header {
     color: transparent;
     max-width: 1402px;
     -webkit-text-stroke: 1px var(--white-color-10);
-    white-space: nowrap;
+   
 
     @media screen and (max-width: 1510px) {
       font-size: 100px;
@@ -275,6 +275,7 @@ header {
       text-align: left;
       white-space: wrap;
       max-width: 708px;
+      width: 100%;
     }
     @media screen and (max-width: 700px) {
       font-size: 60px;
