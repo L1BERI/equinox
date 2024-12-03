@@ -323,14 +323,14 @@
     align-items: center;
     justify-content: center;
   }
-  // input[type='radio']:checked + .menu__method {
-  //   background-color: var(--blue-color-10);
-  //   border: 1px solid var(--blue-color-10);
-  //   color: var(--white-color-10);
-  //   .icon {
-  //     fill: var(--white-color-10);
-  //   }
-  // }
+  input[type='radio']:checked + .menu__method {
+    background-color: var(--blue-color-10);
+    border: 1px solid var(--blue-color-10);
+    color: var(--white-color-10);
+    .icon {
+      fill: var(--white-color-10);
+    }
+  }
   &__left-logo {
     display: flex;
     border-right: 1px solid var(--white-color-10);
@@ -510,14 +510,18 @@ fieldset {
     color: var(--white-color-10);
   }
 
-  // input[type='radio']:checked + .menu__method {
-  //   svg path {
-  //     fill: var(--black-color-10);
-  //   }
-  // }
- 
+  input[type='radio']:checked + .menu__method {
+    svg path {
+      fill: var(--black-color-10);
+    }
+  }
+ .icon{
+  color: var(--black-color-10)
+ }
 }
-
+.icon{
+  color: var(--black-color-10)
+ }
 .menu__left-mobile{
   .form__inputs{
    margin-bottom: 20px;
