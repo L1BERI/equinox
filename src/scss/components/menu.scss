@@ -515,6 +515,11 @@ fieldset {
       fill: var(--black-color-10);
     }
   }
+  .menu__method{
+    svg path{
+      fill: var(--black-color-10);
+    }
+  }
 }
 .menu__left-mobile{
   .form__inputs{
@@ -527,6 +532,6 @@ fieldset {
 }
 .menu__method{
   svg path{
-    fill: var(--white-color-10)
+    fill: var(--white-color-10);
   }
 }
