@@ -182,7 +182,7 @@ header {
     align-items: center;
     padding: 30px 0;
     gap: 30px;
-    @include mobile{
+    @include mobile {
       gap: 10px;
       padding: 15px 0;
     }
@@ -192,8 +192,8 @@ header {
     font-weight: 700;
     font-size: 50px;
     color: var(--white-color-10);
-    @include mobile{
-     font-size: 30px;
+    @include small-tablet {
+      font-size: 40px;
     }
   }
 
@@ -215,7 +215,6 @@ header {
       circle {
         fill: var(--black-color-10);
       }
-      
     }
     span {
       font-family: var(--font-family);
@@ -230,12 +229,11 @@ header {
       align-items: center;
       bottom: -26px;
       right: -219px;
-      @include mobile{
+      @include mobile {
         display: none;
       }
       svg {
         animation: moveLine 2s ease-in-out infinite;
-       
       }
     }
   }
@@ -250,6 +248,9 @@ header {
     @media screen and (max-height: 900px) {
       padding-top: 12vh;
     }
+    @include small-tablet {
+      align-items: start;
+    }
   }
 
   &__title {
@@ -261,25 +262,29 @@ header {
     max-width: 1402px;
     -webkit-text-stroke: 1px var(--white-color-10);
     white-space: nowrap;
-  
+
     @media screen and (max-width: 1510px) {
       font-size: 100px;
-    }
-    @include tablet {
-      font-size: 90px;
-    }
-    @media screen and (max-width: 840px) {
-      font-size: 80px;
       white-space: wrap;
     }
-    @include mobile {
+    @include tablet {
+      font-size: 85px;
+    }
+    @include small-tablet {
+      font-size: 100px;
+      text-align: left;
+      white-space: wrap;
+      max-width: 708px;
+    }
+    @media screen and (max-width: 700px) {
       font-size: 60px;
     }
-    @media screen and (max-width: 440px) {
+    @media screen and (max-width: 530px) {
       font-size: 50px;
     }
-    @media screen and (max-width: 380px) {
+    @include small-mobile {
       font-size: 40px;
+      max-width: 310px;
     }
   }
 
@@ -289,8 +294,10 @@ header {
     font-size: 30px;
     text-align: center;
     color: var(--white-color-10);
-    @include tablet {
-      font-size: 22px;
+    @include small-tablet {
+      font-size: 25px;
+      text-align: left;
+      max-width: 366px;
     }
     @include mobile {
       font-size: 20px;
@@ -300,9 +307,39 @@ header {
     }
     @media screen and (max-width: 380px) {
       font-size: 16px;
+      max-width: 247px;
     }
   }
-
+  &__mobile-action {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: var(--blue-color-10);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+   
+    right: 30px;
+    bottom: 13%;
+    align-self: flex-end;
+    transform: translateY(-180px);
+    @include small-tablet{
+      display: flex;
+    }
+    @media screen and (max-width:700px) {
+      transform: translateY(0px);
+    }
+    @include small-mobile{
+      width: 170px;
+      height: 170px;
+      font-size: 16px;
+    }
+  }
   &__scroll-down {
     display: flex;
     flex-direction: column;
@@ -325,6 +362,27 @@ header {
       rect,
       line {
         stroke: var(--white-color-10);
+      }
+    }
+    .mobile-svg {
+      display: none;
+    }
+    .mobile-text {
+      display: none;
+    }
+    @include small-tablet {
+      flex-direction: column-reverse;
+      .mouse-svg {
+        display: none;
+      }
+      .mobile-svg {
+        display: block;
+      }
+      .mouse-text {
+        display: none;
+      }
+      .mobile-text {
+        display: inline;
       }
     }
   }
@@ -374,16 +432,16 @@ header {
   transition: fill 0.3s ease-in-out;
 }
 
-[data-theme='light']{
-  .header__title{
+[data-theme='light'] {
+  .header__title {
     .shadow-header {
       -webkit-text-stroke: 1px transparent;
       color: var(--white-color-10);
     }
   }
 }
-[data-theme='dark']{
-  .header__title{
+[data-theme='dark'] {
+  .header__title {
     .light-header {
       -webkit-text-stroke: 1px transparent;
       color: var(--white-color-10);
