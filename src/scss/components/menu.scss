@@ -517,7 +517,7 @@ fieldset {
   }
   .menu__method{
     svg path{
-      fill: var(--black-color-10);
+      fill: #131313;
     }
   }
 }
@@ -532,6 +532,6 @@ fieldset {
 }
 .menu__method{
   svg path{
-    fill: var(--white-color-10);
+    fill: white;
   }
 }
