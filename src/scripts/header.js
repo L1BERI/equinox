@@ -32,68 +32,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 let tl = gsap.timeline();
 
-tl.fromTo(
-  ['.cursor-circle', '.cursor-dot'],
-  {
-    opacity: 0,
-    visibility: 'hidden',
-  },
-  {
-    opacity: 1,
-    visibility: 'visible',
-  },
-)
-  .fromTo(
-    '.header__title',
-    {
-      y: 15,
-      opacity: 0,
-    },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      delay: 0.5,
-    },
-  )
-  .fromTo(
-    '.header__subtitle',
-    {
-      y: 7,
-      opacity: 0,
-    },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-    },
-  )
-  .fromTo(
-    '.header__upper',
-    {
-      y: -20,
-      opacity: 0,
-    },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-    },
-  )
-  .fromTo(
-    '.header__scroll-down',
-    {
-      y: 50,
-      opacity: 0,
-    },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      clearProps: 'true,',
-    },
-  );
+tl
+.fromTo('.header',{
+  scale:1.2,
+  opacity:0
 
+}, {
+  opacity:1,
+  scale:1,
+  duration:0.4,
+  delay:1,
+})
+
+  
 const burgerBtn = document.querySelector('.burger-menu');
 let isAnimating = false;
 const menuWrapper = document.querySelector('.menu');
@@ -143,7 +94,18 @@ burgerBtn.addEventListener('click', (e) => {
 
     menuTl
     
-     
+    .fromTo(
+      '.menu__right-list',
+      {
+       
+        opacity: 0,
+      },
+      {
+       delay:1,
+        opacity: 1,
+        duration: 1,
+      },
+    )
       .fromTo(
         window.innerWidth <= 568 ? '.menu__left-mobile' : '.menu__form',
         {

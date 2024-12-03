@@ -101,7 +101,7 @@ menuLinks.forEach(el => {
 })
 
 const formMobileBtn = document.querySelector('.menu__left-mobile-btn')
-let counter = 0
+let counter = 1
 formMobileBtn.addEventListener('click', () => {
   const mobileForm = document.querySelector('.menu__left-mobile')
   const mobileFormWapper = document.querySelector('.form__inputs-wrapper')
@@ -118,7 +118,7 @@ formMobileBtn.addEventListener('click', () => {
      
     })
     gsap.to(mobileFormWapper, {
-    
+      visibility:'visible',
       opacity:1
     })
   } else {
@@ -127,7 +127,7 @@ formMobileBtn.addEventListener('click', () => {
     
     })
     gsap.to(mobileFormWapper, {
-    
+      visibility:'hidden',
       opacity:0
     })
   }

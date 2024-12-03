@@ -43,8 +43,11 @@ ol {
 }
 
 input {
+  -webkit-appearance: none; /* Отключает стили iOS */
+  appearance: none; /* Сбрасывает стили для всех браузеров */
   outline: none;
   border: none;
+  border-radius: 0;
 }
 
 a {
