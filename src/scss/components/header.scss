@@ -251,6 +251,9 @@ header {
     @include small-tablet {
       align-items: start;
     }
+    @include mobile{
+      padding-top: 5vh;
+    }
   }
 
   &__title {
@@ -337,7 +340,7 @@ header {
     @media screen and (max-width:700px) {
       transform: translateY(0px);
     }
-    @include small-mobile{
+    @include mobile{
       width: 170px;
       height: 170px;
       font-size: 16px;
