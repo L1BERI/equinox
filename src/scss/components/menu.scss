@@ -525,3 +525,8 @@ fieldset {
     visibility: hidden;
   }
 }
+.menu__method{
+  svg path{
+    fill: var(--white-color-10)
+  }
+}
